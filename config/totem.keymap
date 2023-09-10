@@ -20,10 +20,6 @@
 #define L_TMB_KEYS 32 33 34
 #define R_TMB_KEYS 35 36 37
 
-&mt {
-  tapping-term-ms = <280>;
-};
-
 / {
   macros {
     winpv: winpv {
@@ -103,16 +99,25 @@
       hold-trigger-key-positions = <L_KEYS R_ETC_KEYS R_TMB_KEYS>;
       hold-trigger-on-release;
     };
+    tht: thumb_hold_tap {
+      compatible = "zmk,behavior-hold-tap";
+      label = "THUMB_HOLD_TAP";
+      #binding-cells = <2>;
+      flavor = "balanced";
+      tapping-term-ms = <280>;
+      bindings = <&kp>, <&kp>;
+      hold-trigger-on-release;
+    };
   };
   keymap {
     compatible = "zmk,keymap";
     base_layer {
       label = "BASE";
       bindings = <
-        &kp Q        &kp W       &kp E         &kp R        &kp T            /*=*/ &kp Y        &kp U         &kp I        &kp O       &kp P
-        &lht LCMD A  &lht LALT S &lht LCTRL D  &lht LSHFT F &kp G            /*=*/ &kp H        &rht LSHFT J  &rht LCTRL K &rht LALT L &rht LCMD APOS
-        &kp Z        &kp X       &kp C         &kp V        &kp B            /*=*/ &kp N        &kp M         &kp COMMA    &kp DOT     &kp SEMI
-        &tog GAME    /**/        &mt LCTRL ESC &lt NAVI TAB &mt LSHIFT SPACE /*=*/ &lt SYMB RET &lt NUMB BSPC &lt FUNC DEL /**/        &kp LANG1
+        &kp Q        &kp W       &kp E          &kp R        &kp T             /*=*/ &kp Y        &kp U         &kp I        &kp O       &kp P
+        &lht LCMD A  &lht LALT S &lht LCTRL D   &lht LSHFT F &kp G             /*=*/ &kp H        &rht LSHFT J  &rht LCTRL K &rht LALT L &rht LCMD APOS
+        &kp Z        &kp X       &kp C          &kp V        &kp B             /*=*/ &kp N        &kp M         &kp COMMA    &kp DOT     &kp SEMI
+        &tog GAME    /**/        &tht LCTRL ESC &lt NAVI TAB &tht LSHIFT SPACE /*=*/ &lt SYMB RET &lt NUMB BSPC &lt FUNC DEL /**/        &kp LANG1
       >;
     };
     navi_layer {
