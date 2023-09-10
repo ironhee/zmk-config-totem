@@ -10,8 +10,7 @@
 #define SYMB 2
 #define NUMB 3
 #define FUNC 4
-#define MOUS 5
-#define GAME 6
+#define GAME 5
 
 // Key positions
 #define L_KEYS 0 1 2 3 4 10 11 12 13 14 20 21 22 23 24
