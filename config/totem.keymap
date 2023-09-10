@@ -52,9 +52,8 @@
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       bindings
-        = <&macro_tap &kp KP_NUM>
-        , <&macro_tap_time 10>
-        , <&macro_tap &kp KP_NUM>
+        = <&macro_tap_time 1>
+        , <&macro_tap &kp KP_NUM &kp KP_NUM>
         ;
     };
     ppy_dpi: ppy_dpi {
@@ -62,9 +61,8 @@
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       bindings
-        = <&macro_tap &kp SLCK>
-        , <&macro_tap_time 10>
-        , <&macro_tap &kp SLCK>
+        = <&macro_tap_time 1>
+        , <&macro_tap &kp SLCK &kp SLCK>
         ;
     };
     ppy_rst: ppy_rst {
@@ -72,13 +70,8 @@
       compatible = "zmk,behavior-macro";
       #binding-cells = <0>;
       bindings
-        = <&macro_tap &kp SLCK>
-        , <&macro_tap_time 10>
-        , <&macro_tap &kp SLCK>
-        , <&macro_tap_time 10>
-        , <&macro_tap &kp KP_NUM>
-        , <&macro_tap_time 10>
-        , <&macro_tap &kp KP_NUM>
+        = <&macro_tap_time 1>
+        , <&macro_tap &kp SLCK &kp SLCK &kp KP_NUM &kp KP_NUM>
         ;
     };
   };
