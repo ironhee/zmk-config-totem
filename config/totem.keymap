@@ -73,7 +73,7 @@
     combo_lang {
       timeout-ms = <50>;
       key-positions = <R3_3 R3_4>;
-      bindings = <&bt BT_CLR>;
+      bindings = <&kp LANG1>;
     };
   };
   behaviors {
