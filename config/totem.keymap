@@ -83,6 +83,8 @@
       #binding-cells = <2>;
       flavor = "balanced";
       tapping-term-ms = <280>;
+      quick-tap-ms = <175>;
+      global-quick-tap-ms = <150>;
       bindings = <&kp>, <&kp>;
       hold-trigger-key-positions = <R1_X R2_X R3_X LA_X LT_X>;
       hold-trigger-on-release;
@@ -93,6 +95,8 @@
       #binding-cells = <2>;
       flavor = "balanced";
       tapping-term-ms = <280>;
+      quick-tap-ms = <175>;
+      global-quick-tap-ms = <150>;
       bindings = <&kp>, <&kp>;
       hold-trigger-key-positions = <L1_X L2_X L3_X RA_X RT_X>;
       hold-trigger-on-release;
@@ -103,6 +107,8 @@
       #binding-cells = <2>;
       flavor = "balanced";
       tapping-term-ms = <280>;
+      quick-tap-ms = <175>;
+      global-quick-tap-ms = <150>;
       bindings = <&kp>, <&kp>;
       hold-trigger-on-release;
     };
