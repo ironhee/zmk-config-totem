@@ -27,29 +27,35 @@
     IRONHEE_HOLD_TAP(lht, &kp, &kp, R1_X R2_X R3_X LA_X LT_X) // left keys
     IRONHEE_HOLD_TAP(rht, &kp, &kp, L1_X L2_X L3_X RA_X RT_X) // right keys
     IRONHEE_HOLD_TAP(tht, &kp, &kp, L1_X L2_X L3_X LA_X LT_X R1_X R2_X R3_X RA_X RT_X) // thumb keys
+    // Hold Tap (Home Row Tap Combo)
+    IRONHEE_HOLD_TAP(rht_m_lpar, &kp, &m_lpar, L1_X L2_X L3_X RA_X RT_X)
+    IRONHEE_HOLD_TAP(rht_m_rpar, &kp, &m_rpar, L1_X L2_X L3_X RA_X RT_X)
     // Morp Shift
     IRONHEE_MORP_SHIFT(m_comma, &kp COMMA, &kp SEMICOLON)
-    IRONHEE_MORP_SHIFT(m_dot, &kp DOT, &kp COLON)
+    IRONHEE_MORP_SHIFT(m_dot,   &kp DOT,   &kp COLON)
     IRONHEE_MORP_SHIFT(m_qmark, &kp QMARK, &kp EXCL)
-    IRONHEE_MORP_SHIFT(m_lpar, &kp LPAR, &kp LT)
-    IRONHEE_MORP_SHIFT(m_rpar, &kp RPAR, &kp GT)
-    IRONHEE_MORP_SHIFT(m_lbkt, &kp LBKT, &kp LBRC)
-    IRONHEE_MORP_SHIFT(m_rbkt, &kp RBKT, &kp RBRC)
-    IRONHEE_MORP_SHIFT(m_plus, &kp PLUS, &kp STAR)
+    IRONHEE_MORP_SHIFT(m_lpar,  &kp LPAR,  &kp LT)
+    IRONHEE_MORP_SHIFT(m_rpar,  &kp RPAR,  &kp GT)
+    IRONHEE_MORP_SHIFT(m_lbkt,  &kp LBKT,  &kp LBRC)
+    IRONHEE_MORP_SHIFT(m_rbkt,  &kp RBKT,  &kp RBRC)
+    IRONHEE_MORP_SHIFT(m_plus,  &kp PLUS,  &kp STAR)
     IRONHEE_MORP_SHIFT(m_minus, &kp MINUS, &kp FSLH)
     IRONHEE_MORP_SHIFT(m_equal, &kp EQUAL, &kp UNDER)
   };
   combos {
     compatible = "zmk,combos";
-    // Left Hand Horizontal Combos
-    IRONHEE_COMBO_HORI(copy, L2_2 L2_3, &kp LC(C))
-    IRONHEE_COMBO_HORI(paste, L2_3 L2_4, &kp LC(V))
-    IRONHEE_COMBO_HORI(cut, L2_2 L2_4, &kp LC(X))
+    // Left Hand Horizontal Combo
+    IRONHEE_COMBO_HORI(minus, L1_2 L1_3, &m_minus)
+    IRONHEE_COMBO_HORI(plus,  L1_3 L1_4, &m_plus)
+    IRONHEE_COMBO_HORI(equal, L1_2 L1_4, &m_equal)
+    IRONHEE_COMBO_HORI(copy,  L3_2 L3_3, &kp LC(C))
+    IRONHEE_COMBO_HORI(paste, L3_3 L3_4, &kp LC(V))
+    IRONHEE_COMBO_HORI(cut,   L3_2 L3_4, &kp LC(X))
     // Right Hand Horizontal Combos
-    IRONHEE_COMBO_HORI(lpar, R2_3 R2_4, &m_lpar)
-    IRONHEE_COMBO_HORI(rpar, R2_2 R2_3, &m_rpar)
-    IRONHEE_COMBO_HORI(lbkt, R3_3 R3_4, &m_lbkt)
-    IRONHEE_COMBO_HORI(rbkt, R3_2 R3_3, &m_rbkt)
+    IRONHEE_COMBO_HORI(lpar,  R2_3 R2_4, &rht_m_lpar LS(LCTRL) 0)
+    IRONHEE_COMBO_HORI(rpar,  R2_2 R2_3, &rht_m_rpar LA(LCTRL) 0)
+    IRONHEE_COMBO_HORI(lbkt,  R3_3 R3_4, &m_lbkt)
+    IRONHEE_COMBO_HORI(rbkt,  R3_2 R3_3, &m_rbkt)
   };
   keymap {
     compatible = "zmk,keymap";
