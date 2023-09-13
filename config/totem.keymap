@@ -63,19 +63,6 @@
         ;
     };
   };
-  combos {
-    compatible = "zmk,combos";
-    combo_bt_clr {
-      timeout-ms = <50>;
-      key-positions = <LA_1 RA_1>;
-      bindings = <&bt BT_CLR>;
-    };
-    combo_lang {
-      timeout-ms = <50>;
-      key-positions = <R3_3 R3_4>;
-      bindings = <&kp LANG1>;
-    };
-  };
   behaviors {
     // Hold Tap
     lht: left_hand_positional_hold_tap {
@@ -134,6 +121,79 @@
       #binding-cells = <0>;
       bindings = <&kp QMARK>, <&kp EXCL>;
       mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    m_lpar: morp_lpar {
+      compatible = "zmk,behavior-mod-morph";
+      label = "MORP_LPAR";
+      #binding-cells = <0>;
+      bindings = <&kp LPAR>, <&kp LT>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    m_rpar: morp_rpar {
+      compatible = "zmk,behavior-mod-morph";
+      label = "MORP_RPAR";
+      #binding-cells = <0>;
+      bindings = <&kp RPAR>, <&kp GT>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    m_lbkt: morp_lbkt {
+      compatible = "zmk,behavior-mod-morph";
+      label = "MORP_LBKT";
+      #binding-cells = <0>;
+      bindings = <&kp LBKT>, <&kp LBRC>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+    m_rbkt: morp_rbkt {
+      compatible = "zmk,behavior-mod-morph";
+      label = "MORP_RBKT";
+      #binding-cells = <0>;
+      bindings = <&kp RBKT>, <&kp RBRC>;
+      mods = <(MOD_LSFT|MOD_RSFT)>;
+    };
+  };
+  combos {
+    compatible = "zmk,combos";
+    combo_bt_clr {
+      timeout-ms = <18>;
+      key-positions = <LA_1 RA_1>;
+      bindings = <&bt BT_CLR>;
+    };
+    // Left Hand Horizontal Combos
+    combo_copy {
+      timeout-ms = <18>;
+      key-positions = <L3_2 L3_3>;
+      bindings = <&kp LC(C)>;
+    };
+    combo_paste {
+      timeout-ms = <18>;
+      key-positions = <L3_3 L3_4>;
+      bindings = <&kp LC(V)>;
+    };
+    combo_cut {
+      timeout-ms = <18>;
+      key-positions = <L3_2 L3_4>;
+      bindings = <&kp LC(X)>;
+    };
+    // Right Hand Horizontal Combos
+    combo_lpar {
+      timeout-ms = <18>;
+      key-positions = <R2_3 R2_4>;
+      bindings = <&m_lpar>;
+    };
+    combo_rpar {
+      timeout-ms = <18>;
+      key-positions = <R2_2 R2_3>;
+      bindings = <&m_rpar>;
+    };
+    combo_lbkt {
+      timeout-ms = <18>;
+      key-positions = <R3_3 R3_4>;
+      bindings = <&m_lbkt>;
+    };
+    combo_rbkt {
+      timeout-ms = <18>;
+      key-positions = <R3_2 R3_3>;
+      bindings = <&m_rbkt>;
     };
   };
   keymap {
