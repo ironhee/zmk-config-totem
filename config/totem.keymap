@@ -4,6 +4,7 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/mouse.h>
 #include "./totem_key_position.h"
+#include "./totem_macro.h"
 
 // Layer
 #define BASE 0
@@ -15,186 +16,40 @@
 
 / {
   macros {
-    winpv: winpv {
-      label = "WINDOW_PREV";
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      bindings
-          = <&macro_press &kp LCMD &kp LCTRL>
-          , <&macro_tap &kp LEFT>
-          , <&macro_release &kp LCMD &kp LCTRL>
-          ;
-    };
-    winnx: winnx {
-      label = "WINDOW_NEXT";
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      bindings
-          = <&macro_press &kp LCMD &kp LCTRL>
-          , <&macro_tap &kp RIGHT>
-          , <&macro_release &kp LCMD &kp LCTRL>
-          ;
-    };
-    ppy_scr: ppy_scr {
-      label = "PLOOPY_SCROLL_WHEEL";
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      bindings
-        = <&macro_tap_time 1>
-        , <&macro_tap &kp KP_NUM &kp KP_NUM>
-        ;
-    };
-    ppy_dpi: ppy_dpi {
-      label = "PLOOPY_DPI";
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      bindings
-        = <&macro_tap_time 1>
-        , <&macro_tap &kp SLCK &kp SLCK>
-        ;
-    };
-    ppy_rst: ppy_rst {
-      label = "PLOOPY_RESET";
-      compatible = "zmk,behavior-macro";
-      #binding-cells = <0>;
-      bindings
-        = <&macro_tap_time 1>
-        , <&macro_tap &kp SLCK &kp SLCK &kp KP_NUM &kp KP_NUM>
-        ;
-    };
+    IRONHEE_MACRO(winpv, <&macro_press &kp LCMD &kp LCTRL>, <&macro_tap &kp LEFT>, <&macro_release &kp LCMD &kp LCTRL>)
+    IRONHEE_MACRO(winnx, <&macro_press &kp LCMD &kp LCTRL>, <&macro_tap &kp RIGHT>, <&macro_release &kp LCMD &kp LCTRL>)
+    IRONHEE_MACRO(ppy_scr, <&macro_tap &kp KP_NUM &kp KP_NUM>)
+    IRONHEE_MACRO(ppy_dpi, <&macro_tap &kp SLCK &kp SLCK>)
+    IRONHEE_MACRO(ppy_rst, <&macro_tap &kp SLCK &kp SLCK &kp KP_NUM &kp KP_NUM>)
   };
   behaviors {
     // Hold Tap
-    lht: left_hand_positional_hold_tap {
-      compatible = "zmk,behavior-hold-tap";
-      label = "LEFT_POSITIONAL_HOLD_TAP";
-      #binding-cells = <2>;
-      flavor = "balanced";
-      tapping-term-ms = <280>;
-      quick-tap-ms = <175>;
-      global-quick-tap-ms = <150>;
-      bindings = <&kp>, <&kp>;
-      hold-trigger-key-positions = <R1_X R2_X R3_X LA_X LT_X>;
-      hold-trigger-on-release;
-    };
-    rht: right_hand_positional_hold_tap {
-      compatible = "zmk,behavior-hold-tap";
-      label = "RIGHT_POSITIONAL_HOLD_TAP";
-      #binding-cells = <2>;
-      flavor = "balanced";
-      tapping-term-ms = <280>;
-      quick-tap-ms = <175>;
-      global-quick-tap-ms = <150>;
-      bindings = <&kp>, <&kp>;
-      hold-trigger-key-positions = <L1_X L2_X L3_X RA_X RT_X>;
-      hold-trigger-on-release;
-    };
-    tht: thumb_hold_tap {
-      compatible = "zmk,behavior-hold-tap";
-      label = "THUMB_HOLD_TAP";
-      #binding-cells = <2>;
-      flavor = "balanced";
-      tapping-term-ms = <280>;
-      quick-tap-ms = <175>;
-      global-quick-tap-ms = <150>;
-      bindings = <&kp>, <&kp>;
-      hold-trigger-on-release;
-    };
-    // Mod Morp
-    m_comma: morp_comma {
-      compatible = "zmk,behavior-mod-morph";
-      label = "MORP_COMMA";
-      #binding-cells = <0>;
-      bindings = <&kp COMMA>, <&kp SEMICOLON>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-    m_dot: morp_dot {
-      compatible = "zmk,behavior-mod-morph";
-      label = "MORP_DOT";
-      #binding-cells = <0>;
-      bindings = <&kp DOT>, <&kp COLON>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-    m_qmark: morp_qmark {
-      compatible = "zmk,behavior-mod-morph";
-      label = "MORP_QMARK";
-      #binding-cells = <0>;
-      bindings = <&kp QMARK>, <&kp EXCL>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-    m_lpar: morp_lpar {
-      compatible = "zmk,behavior-mod-morph";
-      label = "MORP_LPAR";
-      #binding-cells = <0>;
-      bindings = <&kp LPAR>, <&kp LT>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-    m_rpar: morp_rpar {
-      compatible = "zmk,behavior-mod-morph";
-      label = "MORP_RPAR";
-      #binding-cells = <0>;
-      bindings = <&kp RPAR>, <&kp GT>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-    m_lbkt: morp_lbkt {
-      compatible = "zmk,behavior-mod-morph";
-      label = "MORP_LBKT";
-      #binding-cells = <0>;
-      bindings = <&kp LBKT>, <&kp LBRC>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
-    m_rbkt: morp_rbkt {
-      compatible = "zmk,behavior-mod-morph";
-      label = "MORP_RBKT";
-      #binding-cells = <0>;
-      bindings = <&kp RBKT>, <&kp RBRC>;
-      mods = <(MOD_LSFT|MOD_RSFT)>;
-    };
+    IRONHEE_HOLD_TAP(lht, &kp, &kp, R1_X R2_X R3_X LA_X LT_X) // left keys
+    IRONHEE_HOLD_TAP(rht, &kp, &kp, L1_X L2_X L3_X RA_X RT_X) // right keys
+    IRONHEE_HOLD_TAP(tht, &kp, &kp, L1_X L2_X L3_X LA_X LT_X R1_X R2_X R3_X RA_X RT_X) // thumb keys
+    // Morp Shift
+    IRONHEE_MORP_SHIFT(m_comma, &kp COMMA, &kp SEMICOLON)
+    IRONHEE_MORP_SHIFT(m_dot, &kp DOT, &kp COLON)
+    IRONHEE_MORP_SHIFT(m_qmark, &kp QMARK, &kp EXCL)
+    IRONHEE_MORP_SHIFT(m_lpar, &kp LPAR, &kp LT)
+    IRONHEE_MORP_SHIFT(m_rpar, &kp RPAR, &kp GT)
+    IRONHEE_MORP_SHIFT(m_lbkt, &kp LBKT, &kp LBRC)
+    IRONHEE_MORP_SHIFT(m_rbkt, &kp RBKT, &kp RBRC)
+    IRONHEE_MORP_SHIFT(m_plus, &kp PLUS, &kp STAR)
+    IRONHEE_MORP_SHIFT(m_minus, &kp MINUS, &kp FSLH)
+    IRONHEE_MORP_SHIFT(m_equal, &kp EQUAL, &kp UNDER)
   };
   combos {
     compatible = "zmk,combos";
-    combo_bt_clr {
-      timeout-ms = <18>;
-      key-positions = <LA_1 RA_1>;
-      bindings = <&bt BT_CLR>;
-    };
     // Left Hand Horizontal Combos
-    combo_copy {
-      timeout-ms = <18>;
-      key-positions = <L3_2 L3_3>;
-      bindings = <&kp LC(C)>;
-    };
-    combo_paste {
-      timeout-ms = <18>;
-      key-positions = <L3_3 L3_4>;
-      bindings = <&kp LC(V)>;
-    };
-    combo_cut {
-      timeout-ms = <18>;
-      key-positions = <L3_2 L3_4>;
-      bindings = <&kp LC(X)>;
-    };
+    IRONHEE_COMBO_HORI(copy, L2_2 L2_3, &kp LC(C))
+    IRONHEE_COMBO_HORI(paste, L2_3 L2_4, &kp LC(V))
+    IRONHEE_COMBO_HORI(cut, L2_2 L2_4, &kp LC(X))
     // Right Hand Horizontal Combos
-    combo_lpar {
-      timeout-ms = <18>;
-      key-positions = <R2_3 R2_4>;
-      bindings = <&m_lpar>;
-    };
-    combo_rpar {
-      timeout-ms = <18>;
-      key-positions = <R2_2 R2_3>;
-      bindings = <&m_rpar>;
-    };
-    combo_lbkt {
-      timeout-ms = <18>;
-      key-positions = <R3_3 R3_4>;
-      bindings = <&m_lbkt>;
-    };
-    combo_rbkt {
-      timeout-ms = <18>;
-      key-positions = <R3_2 R3_3>;
-      bindings = <&m_rbkt>;
-    };
+    IRONHEE_COMBO_HORI(lpar, R2_3 R2_4, &m_lpar)
+    IRONHEE_COMBO_HORI(rpar, R2_2 R2_3, &m_rpar)
+    IRONHEE_COMBO_HORI(lbkt, R3_3 R3_4, &m_lbkt)
+    IRONHEE_COMBO_HORI(rbkt, R3_2 R3_3, &m_rbkt)
   };
   keymap {
     compatible = "zmk,keymap";
