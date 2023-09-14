@@ -40,7 +40,7 @@
     bindings = <BINDINGS>; \
   };
 #define IRONHEE_COMBO_VERT(NAME, KEY_POSITIONS, BINDINGS) \
-  combo_ ## name { \
+  combo_ ## NAME { \
     timeout-ms = <30>; \
     key-positions = <KEY_POSITIONS>; \
     bindings = <BINDINGS>; \

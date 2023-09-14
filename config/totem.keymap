@@ -9,14 +9,14 @@
 // Layer
 #define BASE 0
 #define NAVI 1
-#define SYMB 2
-#define NUMB 3
-#define FUNC 4
-#define GAME 5
+#define NUMB 2
+#define FUNC 3
+#define GAME 4
 
 / {
   macros {
     IRONHEE_MACRO(winpv, <&macro_press &kp LCMD &kp LCTRL>, <&macro_tap &kp LEFT>, <&macro_release &kp LCMD &kp LCTRL>)
+    IRONHEE_MACRO(wintb, <&macro_press &kp LCMD>, <&macro_tap &kp TAB>, <&macro_release &kp LCMD>)
     IRONHEE_MACRO(winnx, <&macro_press &kp LCMD &kp LCTRL>, <&macro_tap &kp RIGHT>, <&macro_release &kp LCMD &kp LCTRL>)
     IRONHEE_MACRO(ppy_scr, <&macro_tap &kp KP_NUM &kp KP_NUM>)
     IRONHEE_MACRO(ppy_dpi, <&macro_tap &kp SLCK &kp SLCK>)
@@ -34,63 +34,78 @@
     IRONHEE_HOLD_TAP(rht_m_lpar,  &kp, &m_lpar,  L1_X L2_X L3_X RA_X RT_X)
     IRONHEE_HOLD_TAP(rht_m_rpar,  &kp, &m_rpar,  L1_X L2_X L3_X RA_X RT_X)
     // Morp Shift
-    IRONHEE_MORP_SHIFT(m_comma, &kp COMMA, &kp SEMICOLON)
-    IRONHEE_MORP_SHIFT(m_dot,   &kp DOT,   &kp COLON)
-    IRONHEE_MORP_SHIFT(m_qmark, &kp QMARK, &kp EXCL)
-    IRONHEE_MORP_SHIFT(m_lpar,  &kp LPAR,  &kp LT)
-    IRONHEE_MORP_SHIFT(m_rpar,  &kp RPAR,  &kp GT)
-    IRONHEE_MORP_SHIFT(m_lbkt,  &kp LBKT,  &kp LBRC)
-    IRONHEE_MORP_SHIFT(m_rbkt,  &kp RBKT,  &kp RBRC)
-    IRONHEE_MORP_SHIFT(m_plus,  &kp PLUS,  &kp STAR)
-    IRONHEE_MORP_SHIFT(m_minus, &kp MINUS, &kp FSLH)
-    IRONHEE_MORP_SHIFT(m_equal, &kp EQUAL, &kp UNDER)
+    IRONHEE_MORP_SHIFT(m_comma, &kp COMMA, &kp SEMICOLON) // ,;
+    IRONHEE_MORP_SHIFT(m_dot,   &kp DOT,   &kp COLON)     // .:
+    IRONHEE_MORP_SHIFT(m_qmark, &kp QMARK, &kp EXCL)      // ?!
+    IRONHEE_MORP_SHIFT(m_lpar,  &kp LPAR,  &kp LT)        // (<
+    IRONHEE_MORP_SHIFT(m_rpar,  &kp RPAR,  &kp GT)        // )>
+    IRONHEE_MORP_SHIFT(m_lbkt,  &kp LBKT,  &kp LBRC)      // [{
+    IRONHEE_MORP_SHIFT(m_rbkt,  &kp RBKT,  &kp RBRC)      // ]}
+    IRONHEE_MORP_SHIFT(m_plus,  &kp PLUS,  &kp STAR)      // +*
+    IRONHEE_MORP_SHIFT(m_minus, &kp MINUS, &kp FSLH)      // -/
+    IRONHEE_MORP_SHIFT(m_equal, &kp EQUAL, &kp UNDER)     // =_
+    IRONHEE_MORP_SHIFT(m_pipe,  &kp PIPE,  &kp AMPS)      // |&
+    IRONHEE_MORP_SHIFT(m_at,    &kp AT,    &kp PRCNT)     // @%
+    IRONHEE_MORP_SHIFT(m_tilde, &kp TILDE, &kp DLLR)      // ~$
+    IRONHEE_MORP_SHIFT(m_grave, &kp GRAVE, &kp CARET)     // `^
   };
   combos {
     compatible = "zmk,combos";
-    // Left Hand Horizontal Combo
-    IRONHEE_COMBO_HORI(tab,   L1_2 L1_3     , &kp TAB)
-    IRONHEE_COMBO_HORI(ret,        L1_3 L1_4, &kp RET)
-    IRONHEE_COMBO_HORI(minus, L2_2 L2_3     , &lht_m_minus LA(LCTRL) 0)
-    IRONHEE_COMBO_HORI(plus,       L2_3 L2_4, &lht_m_plus LS(LCTRL) 0)
-    IRONHEE_COMBO_HORI(equal, L2_2      L2_4, &lht_m_equal LS(LA(LCTRL)) 0)
-    IRONHEE_COMBO_HORI(copy,  L3_2 L3_3     , &kp LC(C))
-    IRONHEE_COMBO_HORI(paste,      L3_3 L3_4, &kp LC(V))
-    IRONHEE_COMBO_HORI(cut,   L3_2      L3_4, &kp LC(X))
-    // Right Hand Horizontal Combos
-    IRONHEE_COMBO_HORI(rpar,       R2_3 R2_2, &rht_m_rpar LA(LCTRL) 0)
-    IRONHEE_COMBO_HORI(lpar,  R2_4 R2_3     , &rht_m_lpar LS(LCTRL) 0)
-    IRONHEE_COMBO_HORI(rbkt,       R3_3 R3_2, &m_rbkt)
-    IRONHEE_COMBO_HORI(lbkt,  R3_4 R3_3     , &m_lbkt)
+    // Left Hand Combo
+    IRONHEE_COMBO_HORI(esc,   L1_1 L1_2               , &kp ESC)
+    IRONHEE_COMBO_HORI(tab,        L1_2 L1_3          , &kp TAB)
+    IRONHEE_COMBO_HORI(bspc,            L1_3 L1_4     , &kp BSPC)
+    IRONHEE_COMBO_HORI(del,                  L1_4 L1_5, &kp DEL)
+    IRONHEE_COMBO_HORI(ret,        L1_2      L1_4     , &kp RET)
+    IRONHEE_COMBO_HORI(minus,      L2_2 L2_3          , &lht_m_minus LA(LCTRL) 0)
+    IRONHEE_COMBO_HORI(plus,            L2_3 L2_4     , &lht_m_plus LS(LCTRL) 0)
+    IRONHEE_COMBO_HORI(equal,      L2_2      L2_4     , &lht_m_equal LS(LA(LCTRL)) 0)
+    IRONHEE_COMBO_HORI(copy,       L3_2 L3_3          , &kp LC(C))
+    IRONHEE_COMBO_HORI(paste,           L3_3 L3_4     , &kp LC(V))
+    IRONHEE_COMBO_HORI(cut,        L3_2      L3_4     , &kp LC(X))
+    IRONHEE_COMBO_VERT(hash,       L1_2
+                                   L2_2               , &kp HASH)
+    IRONHEE_COMBO_VERT(at,              L1_3
+                                        L2_3          , &m_at)
+    IRONHEE_COMBO_VERT(pipe,                 L1_4
+                                             L2_4     , &m_pipe)
+    IRONHEE_COMBO_VERT(bslh,       L2_2
+                                   L3_2               , &kp BSLH)
+    IRONHEE_COMBO_VERT(tilde,           L2_3
+                                        L3_3          , &m_tilde)
+    IRONHEE_COMBO_VERT(grave,                L2_4
+                                             L3_4     , &m_grave)
+    // Right Hand Combos
+    IRONHEE_COMBO_HORI(lang1,      R2_4 R2_3          , &kp LANG1)
+    IRONHEE_COMBO_VERT(lbkt,       R1_4
+                                   R2_4               , &m_lbkt)
+    IRONHEE_COMBO_VERT(rbkt,            R1_3
+                                        R2_3          , &m_rbkt)
+    IRONHEE_COMBO_VERT(lpar,       R2_4
+                                   R3_4               , &m_lpar)
+    IRONHEE_COMBO_VERT(rpar,            R2_3
+                                        R3_3          , &m_rpar)
     // Addon Combo
-    IRONHEE_COMBO_HORI(game,  LA_1      RA_1, &tog GAME)
+    IRONHEE_COMBO_HORI(game, LA_1                 RA_1, &tog GAME)
   };
   keymap {
     compatible = "zmk,keymap";
     base_layer {
       label = "BASE";
       bindings = <
-        &kp Q        &kp W       &kp E          &kp R        &kp T             /*=*/ &kp Y        &kp U         &kp I        &kp O       &kp P
-        &lht LCMD A  &lht LALT S &lht LCTRL D   &lht LSHFT F &kp G             /*=*/ &kp H        &rht LSHFT J  &rht LCTRL K &rht LALT L &rht LCMD APOS
-        &kp Z        &kp X       &kp C          &kp V        &kp B             /*=*/ &kp N        &kp M         &m_comma     &m_dot      &m_qmark
-        &kp LC(Z)    /**/        &tht LCTRL ESC &lt NAVI TAB &tht LSHIFT SPACE /*=*/ &lt SYMB RET &lt NUMB BSPC &lt FUNC DEL /**/        &kp LANG1
+        &kp Q        &kp W       &kp E        &kp R        &kp T          /*=*/ &kp Y        &kp U         &kp I        &kp O       &kp P
+        &lht LCMD A  &lht LALT S &lht LCTRL D &lht LSHFT F &kp G          /*=*/ &kp H        &rht LSHFT J  &rht LCTRL K &rht LALT L &rht LCMD APOS
+        &kp Z        &kp X       &kp C        &kp V        &kp B          /*=*/ &kp N        &kp M         &m_comma     &m_dot      &m_qmark
+        &kp LC(Z)    /**/        &kp LCTRL    &kp LSHFT    &lt NAVI SPACE /*=*/ &lt NUMB RET &lt FUNC BSPC &kp C_MUTE   /**/        &mo NUMB
       >;
     };
     navi_layer {
       label = "NAVI";
       bindings = <
-        &trans   &trans    &trans    &trans    &trans   /*=*/ &kp PG_UP &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &trans
-        &kp LCMD &kp LALT  &kp LCTRL &kp LSHFT &trans   /*=*/ &kp PG_DN &kp LEFT   &kp DOWN     &kp UP       &kp RIGHT
-        &ppy_scr &mkp MCLK &mkp RCLK &mkp LCLK &ppy_dpi /*=*/ &trans    &kp HOME   &winpv       &winnx       &kp END
-        &trans   /**/      &trans    &trans    &trans   /*=*/ &trans    &trans     &trans       /**/         &trans
-      >;
-    };
-    symb_layer {
-      label = "SYMB";
-      bindings = <
-        &kp LT    &kp LBRC  &kp LPAR &kp LBKT  &kp TILDE /*=*/ &kp CARET &kp RBKT  &kp RPAR  &kp RBRC &kp GT
-        &kp GRAVE &kp MINUS &kp PLUS &kp EQUAL &kp DLLR  /*=*/ &kp HASH  &kp LSHFT &kp LCTRL &kp LALT &kp LCMD
-        &kp BSLH  &kp FSLH  &kp STAR &kp UNDER &kp PRCNT /*=*/ &kp AT    &kp PIPE  &kp AMPS  &trans   &trans
-        &trans    /**/      &trans   &trans    &trans    /*=*/ &trans    &trans    &trans    /**/     &trans
+        &trans   &winpv    &wintb    &winnx    &trans   /*=*/ &kp PG_UP &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &trans
+        &kp LCMD &kp LALT  &kp LCTRL &kp LSHFT &trans   /*=*/ &kp PG_DN &kp LEFT     &kp UP     &kp RIGHT    &trans
+        &ppy_scr &mkp MCLK &mkp RCLK &mkp LCLK &ppy_dpi /*=*/ &trans    &kp HOME     &kp DOWN   &kp END      &trans
+        &trans   /**/      &trans    &trans    &trans   /*=*/ &trans    &trans       &trans     /**/         &trans
       >;
     };
     numb_layer {
