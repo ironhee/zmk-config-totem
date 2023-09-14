@@ -33,6 +33,7 @@
     IRONHEE_HOLD_TAP(lht_m_equal, &kp, &m_equal, R1_X R2_X R3_X LA_X LT_X)
     IRONHEE_HOLD_TAP(rht_m_lpar,  &kp, &m_lpar,  L1_X L2_X L3_X RA_X RT_X)
     IRONHEE_HOLD_TAP(rht_m_rpar,  &kp, &m_rpar,  L1_X L2_X L3_X RA_X RT_X)
+    IRONHEE_HOLD_TAP(rht_m_pipe,  &kp, &m_pipe,  L1_X L2_X L3_X RA_X RT_X)
     // Morp Shift
     IRONHEE_MORP_SHIFT(m_comma, &kp COMMA, &kp SEMICOLON) // ,;
     IRONHEE_MORP_SHIFT(m_dot,   &kp DOT,   &kp COLON)     // .:
@@ -63,28 +64,16 @@
     IRONHEE_COMBO_HORI(copy,       L3_2 L3_3          , &kp LC(C))
     IRONHEE_COMBO_HORI(paste,           L3_3 L3_4     , &kp LC(V))
     IRONHEE_COMBO_HORI(cut,        L3_2      L3_4     , &kp LC(X))
-    IRONHEE_COMBO_VERT(hash,       L1_2
-                                   L2_2               , &kp HASH)
-    IRONHEE_COMBO_VERT(at,              L1_3
-                                        L2_3          , &m_at)
-    IRONHEE_COMBO_VERT(pipe,                 L1_4
-                                             L2_4     , &m_pipe)
-    IRONHEE_COMBO_VERT(bslh,       L2_2
-                                   L3_2               , &kp BSLH)
-    IRONHEE_COMBO_VERT(tilde,           L2_3
-                                        L3_3          , &m_tilde)
-    IRONHEE_COMBO_VERT(grave,                L2_4
-                                             L3_4     , &m_grave)
     // Right Hand Combos
-    IRONHEE_COMBO_HORI(lang1,      R2_4 R2_3          , &kp LANG1)
-    IRONHEE_COMBO_VERT(lbkt,       R1_4
-                                   R2_4               , &m_lbkt)
-    IRONHEE_COMBO_VERT(rbkt,            R1_3
-                                        R2_3          , &m_rbkt)
-    IRONHEE_COMBO_VERT(lpar,       R2_4
-                                   R3_4               , &m_lpar)
-    IRONHEE_COMBO_VERT(rpar,            R2_3
-                                        R3_3          , &m_rpar)
+    IRONHEE_COMBO_HORI(bslh,       R1_4 R1_3          , &kp BSLH)
+    IRONHEE_COMBO_HORI(grave,           R1_3 R1_2     , &m_grave)
+    IRONHEE_COMBO_HORI(hash,       R1_4      R1_2     , &kp HASH)
+    IRONHEE_COMBO_HORI(lpar,       R2_4 R2_3          , &rht_m_lpar LS(LCTRL) 0)
+    IRONHEE_COMBO_HORI(rpar,            R2_3 R2_2     , &rht_m_rpar LA(LCTRL) 0)
+    IRONHEE_COMBO_HORI(pipe,       R2_4      R2_2     , &rht_m_pipe LA(LSHFT) 0)
+    IRONHEE_COMBO_HORI(lbkt,       R3_4 R3_3          , &m_lbkt)
+    IRONHEE_COMBO_HORI(rbkt,            R3_3 R3_2     , &m_rbkt)
+    IRONHEE_COMBO_HORI(tilde,      R3_4      R3_2     , &m_tilde)
     // Addon Combo
     IRONHEE_COMBO_HORI(game, LA_1                 RA_1, &tog GAME)
   };
@@ -93,10 +82,10 @@
     base_layer {
       label = "BASE";
       bindings = <
-        &kp Q        &kp W       &kp E        &kp R        &kp T          /*=*/ &kp Y     &kp U         &kp I        &kp O       &kp P
-        &lht LCMD A  &lht LALT S &lht LCTRL D &lht LSHFT F &kp G          /*=*/ &kp H     &rht LSHFT J  &rht LCTRL K &rht LALT L &rht LCMD APOS
-        &kp Z        &kp X       &kp C        &kp V        &kp B          /*=*/ &kp N     &kp M         &m_comma     &m_dot      &m_qmark
-        &kp LC(Z)    /**/        &kp LCTRL    &lt FUNC RET &lt NAVI SPACE /*=*/ &kp LSHFT &lt NUMB BSPC &kp C_MUTE   /**/        &mo NUMB
+        &kp Q        &kp W       &kp E        &kp R          &kp T          /*=*/ &kp Y     &kp U         &kp I          &kp O       &kp P
+        &lht LCMD A  &lht LALT S &lht LCTRL D &lht LSHFT F   &kp G          /*=*/ &kp H     &rht LSHFT J  &rht LCTRL K   &rht LALT L &rht LCMD APOS
+        &kp Z        &kp X       &kp C        &kp V          &kp B          /*=*/ &kp N     &kp M         &m_comma       &m_dot      &m_qmark
+        &kp LC(Z)    /**/        &kp TAB      &tht LCTRL RET &lt NAVI SPACE /*=*/ &kp LSHFT &lt NUMB BSPC &lt FUNC LANG1 /**/        &mo NUMB
       >;
     };
     navi_layer {
