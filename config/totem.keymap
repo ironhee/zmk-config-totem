@@ -49,6 +49,7 @@
     IRONHEE_MORP_SHIFT(m_at,    &kp AT,    &kp PRCNT)     // @%
     IRONHEE_MORP_SHIFT(m_tilde, &kp TILDE, &kp DLLR)      // ~$
     IRONHEE_MORP_SHIFT(m_grave, &kp GRAVE, &kp CARET)     // `^
+    IRONHEE_MORP_SHIFT(m_bslh,  &kp BSLH,  &kp HASH)      // \#
   };
   combos {
     compatible = "zmk,combos";
@@ -65,9 +66,9 @@
     IRONHEE_COMBO_HORI(paste,           L3_3 L3_4     , &kp LC(V))
     IRONHEE_COMBO_HORI(cut,        L3_2      L3_4     , &kp LC(X))
     // Right Hand Combos
-    IRONHEE_COMBO_HORI(bslh,       R1_4 R1_3          , &kp BSLH)
-    IRONHEE_COMBO_HORI(grave,           R1_3 R1_2     , &m_grave)
-    IRONHEE_COMBO_HORI(hash,       R1_4      R1_2     , &kp HASH)
+    IRONHEE_COMBO_HORI(bslh,       R1_4 R1_3          , &m_bslh)
+    IRONHEE_COMBO_HORI(at,              R1_3 R1_2     , &m_at)
+    IRONHEE_COMBO_HORI(grave,      R1_4      R1_2     , &m_grave)
     IRONHEE_COMBO_HORI(lpar,       R2_4 R2_3          , &rht_m_lpar LS(LCTRL) 0)
     IRONHEE_COMBO_HORI(rpar,            R2_3 R2_2     , &rht_m_rpar LA(LCTRL) 0)
     IRONHEE_COMBO_HORI(pipe,       R2_4      R2_2     , &rht_m_pipe LA(LSHFT) 0)
