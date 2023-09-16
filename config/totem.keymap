@@ -18,6 +18,9 @@
     IRONHEE_MACRO(winpv, <&macro_press &kp LCMD &kp LCTRL>, <&macro_tap &kp LEFT>, <&macro_release &kp LCMD &kp LCTRL>)
     IRONHEE_MACRO(wintb, <&macro_press &kp LCMD>, <&macro_tap &kp TAB>, <&macro_release &kp LCMD>)
     IRONHEE_MACRO(winnx, <&macro_press &kp LCMD &kp LCTRL>, <&macro_tap &kp RIGHT>, <&macro_release &kp LCMD &kp LCTRL>)
+    IRONHEE_MACRO(wordpv, <&macro_press &kp LCTRL>, <&macro_tap &kp LEFT>, <&macro_release &kp LCTRL>)
+    IRONHEE_MACRO(wordnx, <&macro_press &kp LCTRL>, <&macro_tap &kp RIGHT>, <&macro_release &kp LCTRL>)
+    IRONHEE_MACRO(linesel, <&macro_tap &kp HOME>, <&macro_press &kp LSHFT>, <&macro_tap &kp END>, <&macro_release &kp LSHFT>)
     IRONHEE_MACRO(ppy_scr, <&macro_tap &kp KP_NUM &kp KP_NUM>)
     IRONHEE_MACRO(ppy_dpi, <&macro_tap &kp SLCK &kp SLCK>)
     IRONHEE_MACRO(ppy_rst, <&macro_tap &kp SLCK &kp SLCK &kp KP_NUM &kp KP_NUM>)
@@ -92,10 +95,10 @@
     navi_layer {
       label = "NAVI";
       bindings = <
-        &trans   &winpv    &wintb    &winnx    &trans   /*=*/ &kp PG_UP &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &trans
-        &kp LCMD &kp LALT  &kp LCTRL &kp LSHFT &trans   /*=*/ &kp PG_DN &kp LEFT     &kp UP     &kp RIGHT    &trans
-        &ppy_scr &mkp MCLK &mkp RCLK &mkp LCLK &ppy_dpi /*=*/ &trans    &kp HOME     &kp DOWN   &kp END      &trans
-        &trans   /**/      &trans    &trans    &trans   /*=*/ &trans    &trans       &trans     /**/         &trans
+        &trans   &winpv    &wintb    &winnx    &trans   /*=*/ &kp PG_UP &wordpv  &linesel &wordnx   &kp C_VOL_UP
+        &kp LCMD &kp LALT  &kp LCTRL &kp LSHFT &trans   /*=*/ &kp PG_DN &kp LEFT &kp UP   &kp RIGHT &kp C_VOL_DN
+        &ppy_scr &mkp MCLK &mkp RCLK &mkp LCLK &ppy_dpi /*=*/ &trans    &kp HOME &kp DOWN &kp END   &kp C_MUTE
+        &trans   /**/      &trans    &trans    &trans   /*=*/ &trans    &trans   &trans   /**/      &trans
       >;
     };
     numb_layer {
