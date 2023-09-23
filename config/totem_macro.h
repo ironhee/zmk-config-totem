@@ -12,7 +12,7 @@
     tap-ms = <1>; \
     bindings = __VA_ARGS__; \
   };
-#define IRONHEE_HOLD_TAP(NAME, HOLD, TAP, HOLD_TRIGGER_KEY_POSITIONS) \
+#define IRONHEE_HOME_ROW(NAME, HOLD, TAP, HOLD_TRIGGER_KEY_POSITIONS) \
   NAME: NAME { \
     compatible = "zmk,behavior-hold-tap"; \
     label = WRAP_QUOTE(HOLD_TAP_ ## NAME); \
@@ -24,6 +24,17 @@
     bindings = <HOLD>, <TAP>; \
     hold-trigger-key-positions = <HOLD_TRIGGER_KEY_POSITIONS>; \
     hold-trigger-on-release; \
+  };
+#define IRONHEE_THUM_ROW(NAME, HOLD, TAP) \
+  NAME: NAME { \
+    compatible = "zmk,behavior-hold-tap"; \
+    label = WRAP_QUOTE(HOLD_TAP_ ## NAME); \
+    #binding-cells = <2>; \
+    flavor = "tap-unless-interrupted"; \
+    tapping-term-ms = <280>; \
+    quick-tap-ms = <175>; \
+    global-quick-tap-ms = <150>; \
+    bindings = <HOLD>, <TAP>; \
   };
 #define IRONHEE_MORP_SHIFT(NAME, BINDING_BASE, BINDING_MORP) \
   NAME: NAME { \

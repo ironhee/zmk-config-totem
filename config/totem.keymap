@@ -11,7 +11,6 @@
 #define NAVI 1
 #define NUMB 2
 #define FUNC 3
-#define GAME 4
 
 / {
   macros {
@@ -27,16 +26,9 @@
   };
   behaviors {
     // Hold Tap
-    IRONHEE_HOLD_TAP(lht, &kp, &kp, R1_X R2_X R3_X LA_X LT_X) // left keys
-    IRONHEE_HOLD_TAP(rht, &kp, &kp, L1_X L2_X L3_X RA_X RT_X) // right keys
-    IRONHEE_HOLD_TAP(tht, &kp, &kp, L1_X L2_X L3_X LA_X LT_X R1_X R2_X R3_X RA_X RT_X) // thumb keys
-    // Hold Tap (Home Row Combo)
-    IRONHEE_HOLD_TAP(lht_m_minus, &kp, &m_minus, R1_X R2_X R3_X LA_X LT_X)
-    IRONHEE_HOLD_TAP(lht_m_plus,  &kp, &m_plus,  R1_X R2_X R3_X LA_X LT_X)
-    IRONHEE_HOLD_TAP(lht_m_equal, &kp, &m_equal, R1_X R2_X R3_X LA_X LT_X)
-    IRONHEE_HOLD_TAP(rht_m_lpar,  &kp, &m_lpar,  L1_X L2_X L3_X RA_X RT_X)
-    IRONHEE_HOLD_TAP(rht_m_rpar,  &kp, &m_rpar,  L1_X L2_X L3_X RA_X RT_X)
-    IRONHEE_HOLD_TAP(rht_m_pipe,  &kp, &m_pipe,  L1_X L2_X L3_X RA_X RT_X)
+    IRONHEE_THUM_ROW(tht, &kp, &kp) // thumb keys
+    IRONHEE_HOME_ROW(lht, &kp, &kp, R1_X R2_X R3_X LA_X LT_X) // left keys
+    IRONHEE_HOME_ROW(rht, &kp, &kp, L1_X L2_X L3_X RA_X RT_X) // right keys
     // Morp Shift
     IRONHEE_MORP_SHIFT(m_comma, &kp COMMA, &kp SEMICOLON) // ,;
     IRONHEE_MORP_SHIFT(m_dot,   &kp DOT,   &kp COLON)     // .:
@@ -57,47 +49,43 @@
   combos {
     compatible = "zmk,combos";
     // Left Hand Combo
-    IRONHEE_COMBO_HORI(esc,   L1_1 L1_2               , &kp ESC)
-    IRONHEE_COMBO_HORI(tab,        L1_2 L1_3          , &kp TAB)
-    IRONHEE_COMBO_HORI(bspc,            L1_3 L1_4     , &kp BSPC)
-    IRONHEE_COMBO_HORI(del,                  L1_4 L1_5, &kp DEL)
-    IRONHEE_COMBO_HORI(ret,        L1_2      L1_4     , &kp RET)
-    IRONHEE_COMBO_HORI(minus,      L2_2 L2_3          , &lht_m_minus LA(LCTRL) 0)
-    IRONHEE_COMBO_HORI(plus,            L2_3 L2_4     , &lht_m_plus LS(LCTRL) 0)
-    IRONHEE_COMBO_HORI(equal,      L2_2      L2_4     , &lht_m_equal LS(LA(LCTRL)) 0)
-    IRONHEE_COMBO_HORI(copy,       L3_2 L3_3          , &kp LC(C))
-    IRONHEE_COMBO_HORI(paste,           L3_3 L3_4     , &kp LC(V))
-    IRONHEE_COMBO_HORI(cut,        L3_2      L3_4     , &kp LC(X))
+    IRONHEE_COMBO_HORI(minus,      L1_2 L1_3          , &m_minus)
+    IRONHEE_COMBO_HORI(plus,            L1_3 L1_4     , &m_plus)
+    IRONHEE_COMBO_HORI(equal,      L1_2      L1_4     , &m_equal)
+    IRONHEE_COMBO_HORI(tab,        L2_2 L2_3          , &lht LA(LCTRL) TAB)
+    IRONHEE_COMBO_HORI(bspc,            L2_3 L2_4     , &lht LS(LCTRL) BSPC)
+    IRONHEE_COMBO_HORI(esc,        L2_2      L2_4     , &lht LA(LSHFT) ESC)
+    IRONHEE_COMBO_HORI(bslh,       L3_2 L3_3          , &m_bslh)
+    IRONHEE_COMBO_HORI(at,              L3_3 L3_4     , &m_at)
+    IRONHEE_COMBO_HORI(grave,      L3_2      L3_4     , &m_grave)
     // Right Hand Combos
-    IRONHEE_COMBO_HORI(bslh,       R1_4 R1_3          , &m_bslh)
-    IRONHEE_COMBO_HORI(at,              R1_3 R1_2     , &m_at)
-    IRONHEE_COMBO_HORI(grave,      R1_4      R1_2     , &m_grave)
-    IRONHEE_COMBO_HORI(lpar,       R2_4 R2_3          , &rht_m_lpar LS(LCTRL) 0)
-    IRONHEE_COMBO_HORI(rpar,            R2_3 R2_2     , &rht_m_rpar LA(LCTRL) 0)
-    IRONHEE_COMBO_HORI(pipe,       R2_4      R2_2     , &rht_m_pipe LA(LSHFT) 0)
+    IRONHEE_COMBO_HORI(lpar,       R1_4 R1_3          , &m_lpar)
+    IRONHEE_COMBO_HORI(rpar,            R1_3 R1_2     , &m_rpar)
+    IRONHEE_COMBO_HORI(pipe,       R1_4      R1_2     , &m_pipe)
+    IRONHEE_COMBO_HORI(lang,       R2_4 R2_3          , &rht LS(LCTRL) LANG1)
+    IRONHEE_COMBO_HORI(caps,            R2_3 R2_2     , &rht LA(LCTRL) CAPS)
+    IRONHEE_COMBO_HORI(mute,       R2_4      R2_2     , &rht LA(LSHFT) C_MUTE)
     IRONHEE_COMBO_HORI(lbkt,       R3_4 R3_3          , &m_lbkt)
     IRONHEE_COMBO_HORI(rbkt,            R3_3 R3_2     , &m_rbkt)
     IRONHEE_COMBO_HORI(tilde,      R3_4      R3_2     , &m_tilde)
-    // Addon Combo
-    IRONHEE_COMBO_HORI(game, LA_1                 RA_1, &tog GAME)
   };
   keymap {
     compatible = "zmk,keymap";
     base_layer {
       label = "BASE";
       bindings = <
-        &kp Q        &kp W       &kp E        &kp R          &kp T          /*=*/ &kp Y     &kp U         &kp I          &kp O       &kp P
-        &lht LCMD A  &lht LALT S &lht LCTRL D &lht LSHFT F   &kp G          /*=*/ &kp H     &rht LSHFT J  &rht LCTRL K   &rht LALT L &rht LCMD APOS
-        &kp Z        &kp X       &kp C        &kp V          &kp B          /*=*/ &kp N     &kp M         &m_comma       &m_dot      &m_qmark
-        &kp LC(Z)    /**/        &kp TAB      &tht LCTRL RET &lt NAVI SPACE /*=*/ &kp LSHFT &lt NUMB BSPC &lt FUNC LANG1 /**/        &mo NUMB
+        &kp Q        &kp W       &kp E        &kp R          &kp T          /*=*/ &kp Y           &kp U        &kp I          &kp O       &kp P
+        &lht LCMD A  &lht LALT S &lht LCTRL D &lht LSHFT F   &kp G          /*=*/ &kp H           &rht LSHFT J &rht LCTRL K   &rht LALT L &rht LCMD APOS
+        &kp Z        &kp X       &kp C        &kp V          &kp B          /*=*/ &kp N           &kp M        &m_comma       &m_dot      &m_qmark
+        &kp LC(Z)    /**/        &kp TAB      &tht LCTRL RET &lt NAVI SPACE /*=*/ &tht LSHFT BSPC &lt NUMB DEL &lt FUNC LANG1 /**/        &mo NUMB
       >;
     };
     navi_layer {
       label = "NAVI";
       bindings = <
-        &trans   &winpv    &wintb    &winnx    &trans   /*=*/ &kp PG_UP &wordpv  &linesel &wordnx   &kp C_VOL_UP
-        &kp LCMD &kp LALT  &kp LCTRL &kp LSHFT &trans   /*=*/ &kp PG_DN &kp LEFT &kp UP   &kp RIGHT &kp C_VOL_DN
-        &ppy_scr &mkp MCLK &mkp RCLK &mkp LCLK &ppy_dpi /*=*/ &trans    &kp HOME &kp DOWN &kp END   &kp C_MUTE
+        &kp MB4  &winpv    &wintb    &winnx    &kp MB5  /*=*/ &kp PG_DN &wordpv  &kp UP   &wordnx   &kp PG_UP
+        &kp LCMD &kp LALT  &kp LCTRL &kp LSHFT &trans   /*=*/ &kp HOME  &kp LEFT &kp DOWN &kp RIGHT &kp END
+        &ppy_scr &mkp MCLK &mkp RCLK &mkp LCLK &ppy_dpi /*=*/ &trans    &trans   &trans   &trans    &trans
         &trans   /**/      &trans    &trans    &trans   /*=*/ &trans    &trans   &trans   /**/      &trans
       >;
     };
@@ -106,8 +94,8 @@
       bindings = <
         &trans &kp N7 &kp N8 &kp N9 &trans /*=*/ &trans &trans    &trans    &trans   &trans
         &trans &kp N4 &kp N5 &kp N6 &trans /*=*/ &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD
-        &trans &kp N1 &kp N2 &kp N3 &trans /*=*/ &trans &trans    &trans    &trans   &trans
-        &trans /**/   &trans &kp N0 &trans /*=*/ &trans &trans    &trans   /**/      &trans
+        &kp N0 &kp N1 &kp N2 &kp N3 &trans /*=*/ &trans &trans    &trans    &trans   &trans
+        &trans /**/   &trans &trans &trans /*=*/ &trans &trans    &trans   /**/      &trans
       >;
     };
     func_layer {
@@ -117,15 +105,6 @@
         &kp F11    &kp F4 &kp F5     &kp F6 &kp SCROLLLOCK  /*=*/ &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD
         &kp F10    &kp F1 &kp F2     &kp F3 &kp PAUSE_BREAK /*=*/ &trans &trans    &trans    &trans   &trans
         &bt BT_PRV /**/   &bt BT_CLR &trans &trans          /*=*/ &trans &trans    &trans    /**/     &bt BT_NXT
-      >;
-    };
-    game_layer {
-      label = "GAME";
-      bindings = <
-        &trans &trans &trans &trans &trans /*=*/ &trans &trans &trans &trans &trans
-        &kp A  &kp S  &kp D  &kp F  &trans /*=*/ &trans &trans &trans &trans &trans
-        &trans &trans &trans &trans &trans /*=*/ &trans &trans &trans &trans &trans
-        &trans /**/   &trans &trans &trans /*=*/ &trans &trans &trans /**/   &trans
       >;
     };
   };
