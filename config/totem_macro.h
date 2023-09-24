@@ -46,13 +46,13 @@
   };
 #define IRONHEE_COMBO_HORI(NAME, KEY_POSITIONS, BINDINGS) \
   combo_ ## NAME { \
-    timeout-ms = <18>; \
+    timeout-ms = <32>; \
     key-positions = <KEY_POSITIONS>; \
     bindings = <BINDINGS>; \
   };
 #define IRONHEE_COMBO_VERT(NAME, KEY_POSITIONS, BINDINGS) \
   combo_ ## NAME { \
-    timeout-ms = <30>; \
+    timeout-ms = <32>; \
     key-positions = <KEY_POSITIONS>; \
     bindings = <BINDINGS>; \
   };
