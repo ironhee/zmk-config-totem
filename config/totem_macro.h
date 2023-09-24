@@ -33,7 +33,6 @@
     flavor = "hold-preferred"; \
     tapping-term-ms = <280>; \
     quick-tap-ms = <175>; \
-    global-quick-tap-ms = <150>; \
     bindings = <HOLD>, <TAP>; \
   };
 #define IRONHEE_MORP_SHIFT(NAME, BINDING_BASE, BINDING_MORP) \
