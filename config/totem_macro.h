@@ -30,7 +30,7 @@
     compatible = "zmk,behavior-hold-tap"; \
     label = WRAP_QUOTE(HOLD_TAP_ ## NAME); \
     #binding-cells = <2>; \
-    flavor = "tap-unless-interrupted"; \
+    flavor = "hold-preferred"; \
     tapping-term-ms = <280>; \
     quick-tap-ms = <175>; \
     global-quick-tap-ms = <150>; \
