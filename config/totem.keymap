@@ -12,7 +12,6 @@
 #define NUMB 2
 #define FUNC 3
 #define EXTR 4
-#define MOUS 5
 
 / {
   macros {
@@ -33,7 +32,7 @@
     IRONHEE_HOME_ROW(lht, &kp, &kp, R1_X R2_X R3_X LA_X LT_X) // left keys
     IRONHEE_HOME_ROW(rht, &kp, &kp, L1_X L2_X L3_X RA_X RT_X) // right keys
     // Morp Shift
-    IRONHEE_MORP_SHIFT(m_comma, &kp COMMA, &kp SEMICOLON) // ,;
+    IRONHEE_MORP_SHIFT(m_comma, &kp COMMA, &kp SEMI)      // ,;
     IRONHEE_MORP_SHIFT(m_dot,   &kp DOT,   &kp COLON)     // .:
     IRONHEE_MORP_SHIFT(m_qmark, &kp QMARK, &kp EXCL)      // ?!
     IRONHEE_MORP_SHIFT(m_lpar,  &kp LPAR,  &kp LT)        // (<
@@ -55,9 +54,8 @@
     IRONHEE_COMBO_HORI(minus,      L1_2 L1_3          , &m_minus)
     IRONHEE_COMBO_HORI(plus,            L1_3 L1_4     , &m_plus)
     IRONHEE_COMBO_HORI(equal,      L1_2      L1_4     , &m_equal)
-    IRONHEE_COMBO_HORI(tab,        L2_2 L2_3          , &lht LA(LCTRL) TAB)
+    IRONHEE_COMBO_HORI(del,        L2_2 L2_3          , &lht LA(LCTRL) DEL)
     IRONHEE_COMBO_HORI(bspc,            L2_3 L2_4     , &lht LS(LCTRL) BSPC)
-    IRONHEE_COMBO_HORI(esc,        L2_2      L2_4     , &lht LA(LSHFT) ESC)
     IRONHEE_COMBO_HORI(bslh,       L3_2 L3_3          , &m_bslh)
     IRONHEE_COMBO_HORI(at,              L3_3 L3_4     , &m_at)
     IRONHEE_COMBO_HORI(grave,      L3_2      L3_4     , &m_grave)
@@ -67,7 +65,6 @@
     IRONHEE_COMBO_HORI(pipe,       R1_4      R1_2     , &m_pipe)
     IRONHEE_COMBO_HORI(lang,       R2_4 R2_3          , &rht LS(LCTRL) LANG1)
     IRONHEE_COMBO_HORI(caps,            R2_3 R2_2     , &rht LA(LCTRL) CAPS)
-    IRONHEE_COMBO_HORI(mute,       R2_4      R2_2     , &rht LA(LSHFT) C_MUTE)
     IRONHEE_COMBO_HORI(lbkt,       R3_4 R3_3          , &m_lbkt)
     IRONHEE_COMBO_HORI(rbkt,            R3_3 R3_2     , &m_rbkt)
     IRONHEE_COMBO_HORI(tilde,      R3_4      R3_2     , &m_tilde)
@@ -77,19 +74,19 @@
     base_layer {
       label = "BASE";
       bindings = <
-        &kp Q        &kp W       &kp E        &kp R          &kp T          /*=*/ &kp Y           &kp U        &kp I        &kp O       &kp P
-        &lht LCMD A  &lht LALT S &lht LCTRL D &lht LSHFT F   &kp G          /*=*/ &kp H           &rht LSHFT J &rht LCTRL K &rht LALT L &rht LCMD APOS
-        &kp Z        &kp X       &kp C        &kp V          &kp B          /*=*/ &kp N           &kp M        &m_comma     &m_dot      &m_qmark
-        &mo EXTR     /**/        &kp TAB      &tht LCTRL RET &lt NAVI SPACE /*=*/ &tht LSHFT BSPC &lt NUMB DEL &mo FUNC     /**/        &tog MOUS
+        &kp Q       &kp W       &kp E        &kp R          &kp T          /*=*/ &kp Y           &kp U        &kp I        &kp O       &kp P
+        &lht LCMD A &lht LALT S &lht LCTRL D &lht LSHFT F   &kp G          /*=*/ &kp H           &rht LSHFT J &rht LCTRL K &rht LALT L &rht LCMD APOS
+        &kp Z       &kp X       &kp C        &kp V          &kp B          /*=*/ &kp N           &kp M        &m_comma     &m_dot      &m_qmark
+        &kp TAB     &none       &lt EXTR ESC &tht LCTRL RET &lt NAVI SPACE /*=*/ &tht LSHFT BSPC &lt NUMB DEL &mo FUNC     &none       &trans
       >;
     };
     navi_layer {
       label = "NAVI";
       bindings = <
-        &mkp MB4 &winpv   &wintb    &winnx    &mkp MB5 /*=*/ &kp PG_DN &wordpv  &kp UP   &wordnx   &kp PG_UP
-        &kp LCMD &kp LALT &kp LCTRL &kp LSHFT &tabnx   /*=*/ &kp HOME  &kp LEFT &kp DOWN &kp RIGHT &kp END
-        &trans   &trans   &trans    &trans    &trans   /*=*/ &trans    &trans   &trans   &trans    &trans
-        &trans   /**/     &trans    &trans    &trans   /*=*/ &trans    &trans   &trans   /**/      &trans
+        &mkp MB4 &winpv    &wintb    &winnx    &mkp MB5 /*=*/ &kp PG_DN &wordpv  &kp UP   &wordnx   &kp PG_UP
+        &kp LCMD &kp LALT  &kp LCTRL &kp LSHFT &tabnx   /*=*/ &kp HOME  &kp LEFT &kp DOWN &kp RIGHT &kp END
+        &ppy_scr &mkp MCLK &mkp RCLK &mkp LCLK &ppy_dpi /*=*/ &trans    &trans   &trans   &trans    &trans
+        &trans   &none     &trans    &trans    &trans   /*=*/ &trans    &trans   &trans   &none     &trans
       >;
     };
     numb_layer {
@@ -98,7 +95,7 @@
         &trans &kp N7 &kp N8 &kp N9 &trans /*=*/ &trans &trans    &trans    &trans   &trans
         &trans &kp N4 &kp N5 &kp N6 &trans /*=*/ &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD
         &kp N0 &kp N1 &kp N2 &kp N3 &trans /*=*/ &trans &trans    &trans    &trans   &trans
-        &trans /**/   &trans &trans &trans /*=*/ &trans &trans    &trans   /**/      &trans
+        &trans &none  &trans &trans &trans /*=*/ &trans &trans    &trans   &none     &trans
       >;
     };
     func_layer {
@@ -107,34 +104,16 @@
         &kp F12 &kp F7 &kp F8 &kp F9 &kp PSCRN       /*=*/ &trans &trans    &trans    &trans   &trans
         &kp F11 &kp F4 &kp F5 &kp F6 &kp SCROLLLOCK  /*=*/ &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD
         &kp F10 &kp F1 &kp F2 &kp F3 &kp PAUSE_BREAK /*=*/ &trans &trans    &trans    &trans   &trans
-        &trans  /**/   &trans &trans &trans          /*=*/ &trans &trans    &trans    /**/     &trans
+        &trans  &none  &trans &trans &trans          /*=*/ &trans &trans    &trans    &none    &trans
       >;
     };
     extr_layer {
       label = "EXTR";
       bindings = <
-        &trans &trans &trans &trans &trans /*=*/ &trans &bt BT_PRV   &bt BT_CLR &bt BT_NXT   &trans
-        &trans &trans &trans &trans &trans /*=*/ &trans &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &trans
-        &trans &trans &trans &trans &trans /*=*/ &trans &trans       &trans     &trans       &trans
-        &trans /*=*/  &trans &trans &trans /*=*/ &trans &trans       &trans     /**/         &trans
-      >;
-    };
-    mous_layer {
-      label = "MOUS";
-      bindings = <
-        &trans &trans    &trans    &trans    &trans /*=*/ &trans &trans &trans &trans &trans
-        &trans &mkp MCLK &mkp RCLK &mkp LCLK &trans /*=*/ &trans &trans &trans &trans &trans
-        &trans &trans    &ppy_dpi  &ppy_scr  &trans /*=*/ &trans &trans &trans &trans &trans
-        &trans /*=*/     &trans    &trans    &trans /*=*/ &trans &trans &trans /**/   &trans
-      >;
-    };
-    comb_layer {
-      label = "COMB";
-      bindings = <
-        &trans &trans &trans &trans &trans /*=*/ &trans &trans &trans &trans &trans
-        &trans &trans &trans &trans &trans /*=*/ &trans &trans &trans &trans &trans
-        &trans &trans &trans &trans &trans /*=*/ &trans &trans &trans &trans &trans
-        &trans /*=*/  &trans &trans &trans /*=*/ &trans &trans &trans /**/   &trans
+        &trans &trans &trans &trans &trans /*=*/ &bt BT_CLR &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+        &trans &trans &trans &trans &trans /*=*/ &trans     &kp C_VOL_DN &kp C_MUTE   &kp C_VOL_UP &trans
+        &trans &trans &trans &trans &trans /*=*/ &trans     &trans       &trans       &trans       &trans
+        &trans &none  &trans &trans &trans /*=*/ &trans     &trans       &trans       &none        &trans
       >;
     };
   };
