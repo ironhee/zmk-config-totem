@@ -270,13 +270,13 @@ parse_config:
     SCROLLLOCK: "Scroll Lock"
     PAUSE_BREAK: "Pause Break"
 
-
   zmk_combos:
     combo_minus:
       layers: [BASE]
     combo_plus:
       layers: [BASE]
     combo_equal:
+      offset: 0.5
       align: top
       layers: [BASE]
     combo_tab:
@@ -284,6 +284,7 @@ parse_config:
     combo_bspc:
       layers: [BASE]
     combo_esc:
+      offset: 0.5
       align: top
       layers: [BASE]
     combo_bslh:
@@ -291,6 +292,7 @@ parse_config:
     combo_at:
       layers: [BASE]
     combo_grave:
+      offset: 0.5
       align: top
       layers: [BASE]
     combo_lpar:
@@ -298,13 +300,16 @@ parse_config:
     combo_rpar:
       layers: [BASE]
     combo_pipe:
+      offset: 0.5
       align: top
       layers: [BASE]
     combo_lang:
       layers: [BASE]
+      type: lang
     combo_caps:
       layers: [BASE]
     combo_mute:
+      offset: 0.5
       align: top
       layers: [BASE]
     combo_lbkt:
@@ -312,6 +317,7 @@ parse_config:
     combo_rbkt:
       layers: [BASE]
     combo_tilde:
+      offset: 0.5
       align: top
       layers: [BASE]
 draw_config:
@@ -572,7 +578,6 @@ draw_config:
     .shifted {
         dominant-baseline: hanging;
         fill: var(--color--key--text--shifted);
-        translate: -25px 2px;
     }
     .hold {
         font-size: 12px;
@@ -644,6 +649,10 @@ draw_config:
     /*
      * Overrides
      */
+    .combo.lang {
+      font-size: 10px;
+    }
+
     /* Outer column + thumb keys */
     .keypos-30,
     .keypos-31,
