@@ -11,12 +11,15 @@
 #define NAVI 1
 #define NUMB 2
 #define FUNC 3
+#define EXTR 4
+#define MOUS 5
 
 / {
   macros {
     IRONHEE_MACRO(winpv, <&macro_press &kp LCMD &kp LCTRL>, <&macro_tap &kp LEFT>, <&macro_release &kp LCMD &kp LCTRL>)
     IRONHEE_MACRO(wintb, <&macro_press &kp LCMD>, <&macro_tap &kp TAB>, <&macro_release &kp LCMD>)
     IRONHEE_MACRO(winnx, <&macro_press &kp LCMD &kp LCTRL>, <&macro_tap &kp RIGHT>, <&macro_release &kp LCMD &kp LCTRL>)
+    IRONHEE_MACRO(tabnx, <&macro_press &kp LALT>, <&macro_tap &kp TAB>, <&macro_release &kp LALT>)
     IRONHEE_MACRO(wordpv, <&macro_press &kp LCTRL>, <&macro_tap &kp LEFT>, <&macro_release &kp LCTRL>)
     IRONHEE_MACRO(wordnx, <&macro_press &kp LCTRL>, <&macro_tap &kp RIGHT>, <&macro_release &kp LCTRL>)
     IRONHEE_MACRO(linesel, <&macro_tap &kp HOME>, <&macro_press &kp LSHFT>, <&macro_tap &kp END>, <&macro_release &kp LSHFT>)
@@ -74,19 +77,19 @@
     base_layer {
       label = "BASE";
       bindings = <
-        &kp Q        &kp W       &kp E        &kp R          &kp T          /*=*/ &kp Y           &kp U        &kp I          &kp O       &kp P
-        &lht LCMD A  &lht LALT S &lht LCTRL D &lht LSHFT F   &kp G          /*=*/ &kp H           &rht LSHFT J &rht LCTRL K   &rht LALT L &rht LCMD APOS
-        &kp Z        &kp X       &kp C        &kp V          &kp B          /*=*/ &kp N           &kp M        &m_comma       &m_dot      &m_qmark
-        &kp LC(Z)    /**/        &kp TAB      &tht LCTRL RET &lt NAVI SPACE /*=*/ &tht LSHFT BSPC &lt NUMB DEL &lt FUNC LANG1 /**/        &mo NUMB
+        &kp Q        &kp W       &kp E        &kp R          &kp T          /*=*/ &kp Y           &kp U        &kp I        &kp O       &kp P
+        &lht LCMD A  &lht LALT S &lht LCTRL D &lht LSHFT F   &kp G          /*=*/ &kp H           &rht LSHFT J &rht LCTRL K &rht LALT L &rht LCMD APOS
+        &kp Z        &kp X       &kp C        &kp V          &kp B          /*=*/ &kp N           &kp M        &m_comma     &m_dot      &m_qmark
+        &mo EXTR     /**/        &kp TAB      &tht LCTRL RET &lt NAVI SPACE /*=*/ &tht LSHFT BSPC &lt NUMB DEL &mo FUNC     /**/        &to MOUS
       >;
     };
     navi_layer {
       label = "NAVI";
       bindings = <
-        &mkp MB4 &winpv    &wintb    &winnx    &mkp MB5 /*=*/ &kp PG_DN &wordpv    &kp UP       &wordnx      &kp PG_UP
-        &kp LCMD &kp LALT  &kp LCTRL &kp LSHFT &trans   /*=*/ &kp HOME  &kp LEFT   &kp DOWN     &kp RIGHT    &kp END
-        &ppy_scr &mkp MCLK &mkp RCLK &mkp LCLK &ppy_dpi /*=*/ &trans    &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &trans
-        &trans   /**/      &trans    &trans    &trans   /*=*/ &trans    &trans     &trans       /**/         &trans
+        &mkp MB4 &winpv   &wintb    &winnx    &mkp MB5 /*=*/ &kp PG_DN &wordpv  &kp UP   &wordnx   &kp PG_UP
+        &kp LCMD &kp LALT &kp LCTRL &kp LSHFT &tabnx   /*=*/ &kp HOME  &kp LEFT &kp DOWN &kp RIGHT &kp END
+        &trans   &trans   &trans    &trans    &trans   /*=*/ &trans    &trans   &trans   &trans    &trans
+        &trans   /**/     &trans    &trans    &trans   /*=*/ &trans    &trans   &trans   /**/      &trans
       >;
     };
     numb_layer {
@@ -101,10 +104,28 @@
     func_layer {
       label = "FUNC";
       bindings = <
-        &kp F12    &kp F7 &kp F8     &kp F9 &kp PSCRN       /*=*/ &trans &trans    &trans    &trans   &trans
-        &kp F11    &kp F4 &kp F5     &kp F6 &kp SCROLLLOCK  /*=*/ &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD
-        &kp F10    &kp F1 &kp F2     &kp F3 &kp PAUSE_BREAK /*=*/ &trans &trans    &trans    &trans   &trans
-        &bt BT_PRV /**/   &bt BT_CLR &trans &trans          /*=*/ &trans &trans    &trans    /**/     &bt BT_NXT
+        &kp F12 &kp F7 &kp F8 &kp F9 &kp PSCRN       /*=*/ &trans &trans    &trans    &trans   &trans
+        &kp F11 &kp F4 &kp F5 &kp F6 &kp SCROLLLOCK  /*=*/ &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD
+        &kp F10 &kp F1 &kp F2 &kp F3 &kp PAUSE_BREAK /*=*/ &trans &trans    &trans    &trans   &trans
+        &trans  /**/   &trans &trans &trans          /*=*/ &trans &trans    &trans    /**/     &trans
+      >;
+    };
+    extr_layer {
+      label = "EXTR";
+      bindings = <
+        &trans &trans &trans &trans &trans /*=*/ &trans &bt BT_PRV   &bt BT_CLR &bt BT_NXT   &trans
+        &trans &trans &trans &trans &trans /*=*/ &trans &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &trans
+        &trans &trans &trans &trans &trans /*=*/ &trans &trans       &trans     &trans       &trans
+        &trans /*=*/  &trans &trans &trans /*=*/ &trans &trans       &trans     /**/         &trans
+      >;
+    };
+    mous_layer {
+      label = "MOUS";
+      bindings = <
+        &trans &trans    &trans    &trans    &trans /*=*/ &trans &trans &trans &trans &trans
+        &trans &mkp MCLK &mkp RCLK &mkp LCLK &trans /*=*/ &trans &trans &trans &trans &trans
+        &trans &trans    &ppy_dpi  &ppy_scr  &trans /*=*/ &trans &trans &trans &trans &trans
+        &trans /*=*/     &trans    &trans    &trans /*=*/ &trans &trans &trans /**/   &trans
       >;
     };
   };
