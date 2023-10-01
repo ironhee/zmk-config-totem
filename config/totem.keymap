@@ -80,7 +80,7 @@
         &kp Q        &kp W       &kp E        &kp R          &kp T          /*=*/ &kp Y           &kp U        &kp I        &kp O       &kp P
         &lht LCMD A  &lht LALT S &lht LCTRL D &lht LSHFT F   &kp G          /*=*/ &kp H           &rht LSHFT J &rht LCTRL K &rht LALT L &rht LCMD APOS
         &kp Z        &kp X       &kp C        &kp V          &kp B          /*=*/ &kp N           &kp M        &m_comma     &m_dot      &m_qmark
-        &mo EXTR     /**/        &kp TAB      &tht LCTRL RET &lt NAVI SPACE /*=*/ &tht LSHFT BSPC &lt NUMB DEL &mo FUNC     /**/        &to MOUS
+        &mo EXTR     /**/        &kp TAB      &tht LCTRL RET &lt NAVI SPACE /*=*/ &tht LSHFT BSPC &lt NUMB DEL &mo FUNC     /**/        &tog MOUS
       >;
     };
     navi_layer {
@@ -126,6 +126,15 @@
         &trans &mkp MCLK &mkp RCLK &mkp LCLK &trans /*=*/ &trans &trans &trans &trans &trans
         &trans &trans    &ppy_dpi  &ppy_scr  &trans /*=*/ &trans &trans &trans &trans &trans
         &trans /*=*/     &trans    &trans    &trans /*=*/ &trans &trans &trans /**/   &trans
+      >;
+    };
+    comb_layer {
+      label = "COMB";
+      bindings = <
+        &trans &trans &trans &trans &trans /*=*/ &trans &trans &trans &trans &trans
+        &trans &trans &trans &trans &trans /*=*/ &trans &trans &trans &trans &trans
+        &trans &trans &trans &trans &trans /*=*/ &trans &trans &trans &trans &trans
+        &trans /*=*/  &trans &trans &trans /*=*/ &trans &trans &trans /**/   &trans
       >;
     };
   };
