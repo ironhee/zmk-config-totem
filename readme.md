@@ -1,6 +1,6 @@
 # Totem keyboard zmk config
 
-![keymap image](./docs/totem.svg)
+![keymap image](/docs/totem.svg)
 
 ## Generate Keymap Image
 
