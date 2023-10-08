@@ -31,22 +31,22 @@ layers:
   - {t: ',', s: ;}
   - {t: ., s: ':'}
   - {t: '?', s: '!'}
-  - $$mdi:keyboard-tab$$
+  - {t: '$$mdi:mouse$$', h: Right}
   - {type: none}
-  - {t: '$$mdi:keyboard-esc$$', h: EXTR}
+  - {t: '$$mdi:mouse$$', h: Left}
   - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-control$$'}
   - {t: '$$mdi:keyboard-space$$', h: NAVI}
   - {t: '$$mdi:backspace-outline$$', h: '$$mdi:apple-keyboard-shift$$'}
   - {t: '$$mdi:backspace-reverse-outline$$', h: NUMB}
   - FUNC
   - {type: none}
-  - {type: trans}
+  - {t: '$$mdi:mouse-move-vertical$$', h: Scroll}
   NAVI:
-  - {t: '$$mdi:mouse$$', h: Extra 1}
+  - {type: trans}
   - {t: '$$mdi:dock-window$$', h: '$$mdi:arrow-left-bold$$'}
   - $$mdi:dock-window$$
   - {t: '$$mdi:dock-window$$', h: '$$mdi:arrow-right-bold$$'}
-  - {t: '$$mdi:mouse$$', h: Extra 2}
+  - {type: trans}
   - ⇟
   - {t: Word, h: '$$mdi:arrow-left-bold$$'}
   - $$mdi:arrow-up-bold$$
@@ -62,15 +62,15 @@ layers:
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-right-bold$$
   - ⇲
-  - {t: '$$mdi:mouse-move-vertical$$', h: Scroll}
-  - {t: '$$mdi:mouse$$', h: Middle}
-  - {t: '$$mdi:mouse$$', h: Right}
-  - {t: '$$mdi:mouse$$', h: Left}
+  - {type: trans}
+  - {t: '$$mdi:mouse$$', h: Extra 1}
   - {t: '$$mdi:mouse$$', h: DPI}
+  - {t: '$$mdi:mouse$$', h: Extra 2}
   - {type: trans}
   - {type: trans}
-  - {type: trans}
-  - {type: trans}
+  - $$mdi:volume-low$$
+  - $$mdi:volume-off$$
+  - $$mdi:volume-high$$
   - {type: trans}
   - {type: trans}
   - {type: none}
@@ -164,47 +164,6 @@ layers:
   - {type: held}
   - {type: none}
   - {type: trans}
-  EXTR:
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - $$mdi:bluetooth-off$$
-  - {t: '$$mdi:bluetooth-connect$$', h: '1'}
-  - {t: '$$mdi:bluetooth-connect$$', h: '2'}
-  - {t: '$$mdi:bluetooth-connect$$', h: '3'}
-  - {t: '$$mdi:bluetooth-connect$$', h: '4'}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - $$mdi:volume-low$$
-  - $$mdi:volume-off$$
-  - $$mdi:volume-high$$
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: none}
-  - {type: held}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: none}
-  - {type: trans}
 combos:
 - p: [1, 2]
   k: {t: '-', s: /}
@@ -218,11 +177,12 @@ combos:
   a: top
   o: 0.8
 - p: [11, 12]
-  k: {t: '$$mdi:backspace-reverse-outline$$', h: LA(LCTRL)}
-  l: [BASE]
+  k: {t: '$$mdi:keyboard-tab$$', h: LA(LCTRL)}
 - p: [12, 13]
   k: {t: '$$mdi:backspace-outline$$', h: LS(LCTRL)}
   l: [BASE]
+- p: [11, 13]
+  k: {t: '$$mdi:keyboard-esc$$', h: LA(LSHFT)}
 - p: [21, 22]
   k: {t: \, s: '#'}
   l: [BASE]
@@ -261,3 +221,5 @@ combos:
   k: {t: '~', s: $}
   l: [BASE]
   a: bottom
+- p: [30, 32]
+  k: {t: '$$mdi:mouse$$', h: Middle}
