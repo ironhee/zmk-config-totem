@@ -6,5 +6,5 @@
 
 ```sh
 keymap -c keymap_drawer.config.yaml parse -z config/totem.keymap > docs/totem.yaml
-keymap -c keymap_drawer.config.yaml draw -j config/info.json docs/totem.yaml > docs/totem.svg
+keymap -c keymap_drawer.config.yaml draw -j config/totem.json docs/totem.yaml > docs/totem.svg
 ```

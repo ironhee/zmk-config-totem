@@ -35,19 +35,19 @@ parse_config:
     # Mouse
     "&mkp LCLK":
       tap: $$mdi:mouse$$
-      hold: Left
+      hold: L
     "&mkp RCLK":
       tap: $$mdi:mouse$$
-      hold: Right
+      hold: R
     "&mkp MCLK":
       tap: $$mdi:mouse$$
-      hold: Middle
+      hold: M
     "&mkp MB4":
       tap: $$mdi:mouse$$
-      hold: Extra 1
+      hold: 1
     "&mkp MB5":
       tap: $$mdi:mouse$$
-      hold: Extra 2
+      hold: 2
 
   # ZMK
   zmk_keycode_map:
@@ -158,10 +158,18 @@ parse_config:
       offset: 0.8
       align: top
       layers: [BASE]
-    combo_del:
+    combo_tab:
       layers: [BASE]
+      key:
+        tap: $$mdi:keyboard-tab$$
     combo_bspc:
       layers: [BASE]
+      key:
+        tap: $$mdi:backspace-outline$$
+    combo_esc:
+      layers: [BASE]
+      key:
+        tap: $$mdi:keyboard-esc$$
     combo_bslh:
       layers: [BASE]
     combo_at:
@@ -179,14 +187,20 @@ parse_config:
       layers: [BASE]
     combo_lang:
       layers: [BASE]
-      type: lang
+      key:
+        tap: "한/영"
     combo_caps:
       layers: [BASE]
+      key:
+        tap: $$mdi:apple-keyboard-caps$$
     combo_lbkt:
       layers: [BASE]
     combo_rbkt:
       layers: [BASE]
     combo_tilde:
+      align: bottom
+      layers: [BASE]
+    combo_mclk:
       align: bottom
       layers: [BASE]
 
@@ -204,7 +218,7 @@ draw_config:
 
   # combo box dimensions
   combo_w: 30
-  combo_h: 30
+  combo_h: 40
 
   # padding from the edge of cap to top and bottom legends
   small_pad: 4
@@ -401,14 +415,15 @@ draw_config:
         fill: none;
     }
     .combo.tap {
-        font-size: 12px;
+        font-size: 10px;
     }
     .combo.shifted {
-        font-size: 12px;
-        translate: -9px -2px;
+        font-size: 10px;
+        transform: translateY(-2px);
     }
     .combo.hold {
-        display: none;
+        font-size: 10px;
+        transform: translateY(4px);
     }
 
     /*
