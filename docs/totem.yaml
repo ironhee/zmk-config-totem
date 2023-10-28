@@ -31,16 +31,16 @@ layers:
   - {t: ',', s: ;}
   - {t: ., s: ':'}
   - {t: '?', s: '!'}
-  - {t: '$$mdi:mouse$$', h: R}
+  - {type: trans}
   - {type: none}
-  - {t: '$$mdi:mouse$$', h: L}
+  - {type: trans}
   - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-control$$'}
   - {t: '$$mdi:keyboard-space$$', h: NAVI}
   - {t: '$$mdi:backspace-outline$$', h: '$$mdi:apple-keyboard-shift$$'}
   - {t: '$$mdi:backspace-reverse-outline$$', h: NUMB}
   - FUNC
   - {type: none}
-  - '&ppy_scr_tog'
+  - {type: trans}
   NAVI:
   - {type: trans}
   - {t: '$$mdi:dock-window$$', h: '$$mdi:arrow-left-bold$$'}
@@ -62,10 +62,10 @@ layers:
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-right-bold$$
   - ⇲
-  - {t: '$$mdi:mouse-move-vertical$$', h: Scroll}
-  - {t: '$$mdi:mouse$$', h: '1'}
-  - {t: '$$mdi:mouse$$', h: DPI}
-  - {t: '$$mdi:mouse$$', h: '2'}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
   - {type: trans}
   - {type: trans}
   - $$mdi:volume-low$$
@@ -129,11 +129,11 @@ layers:
   - F8
   - F9
   - Print Screen
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
+  - $$mdi:bluetooth-off$$
+  - {t: '$$mdi:bluetooth-connect$$', h: '1'}
+  - {t: '$$mdi:bluetooth-connect$$', h: '2'}
+  - {t: '$$mdi:bluetooth-connect$$', h: '3'}
+  - {t: '$$mdi:bluetooth-connect$$', h: '4'}
   - F11
   - F4
   - F5
