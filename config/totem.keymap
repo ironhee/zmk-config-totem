@@ -80,7 +80,7 @@
         &kp Q       &kp W       &kp E        &kp R          &kp T          /*=*/ &kp Y           &kp U        &kp I        &kp O       &kp P
         &lht LCMD A &lht LALT S &lht LCTRL D &lht LSHFT F   &kp G          /*=*/ &kp H           &rht LSHFT J &rht LCTRL K &rht LALT L &rht LCMD APOS
         &kp Z       &kp X       &kp C        &kp V          &kp B          /*=*/ &kp N           &kp M        &m_comma     &m_dot      &m_qmark
-        &mkp RCLK   &none       &mkp LCLK    &tht LCTRL RET &lt NAVI SPACE /*=*/ &tht LSHFT BSPC &lt NUMB DEL &mo FUNC     &none       &ppy_scr_tog
+        &trans      &none       &trans       &tht LCTRL RET &lt NAVI SPACE /*=*/ &tht LSHFT BSPC &lt NUMB DEL &mo FUNC     &none       &trans
       >;
     };
     navi_layer {
@@ -88,7 +88,7 @@
       bindings = <
         &trans   &winpv   &wintb    &winnx    &trans /*=*/ &kp PG_DN &wordpv      &kp UP     &wordnx      &kp PG_UP
         &kp LCMD &kp LALT &kp LCTRL &kp LSHFT &tabnx /*=*/ &kp HOME  &kp LEFT     &kp DOWN   &kp RIGHT    &kp END
-        &ppy_scr &mkp MB4 &ppy_dpi  &mkp MB5  &trans /*=*/ &trans    &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &trans
+        &trans   &trans   &trans    &trans    &trans /*=*/ &trans    &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &trans
         &trans   &none    &trans    &trans    &trans /*=*/ &trans    &trans       &trans     &none        &trans
       >;
     };
@@ -104,10 +104,10 @@
     func_layer {
       label = "FUNC";
       bindings = <
-        &kp F12 &kp F7 &kp F8 &kp F9 &kp PSCRN       /*=*/ &trans &trans    &trans    &trans   &trans
-        &kp F11 &kp F4 &kp F5 &kp F6 &kp SCROLLLOCK  /*=*/ &trans &kp LSHFT &kp LCTRL &kp LALT &kp LCMD
-        &kp F10 &kp F1 &kp F2 &kp F3 &kp PAUSE_BREAK /*=*/ &trans &trans    &trans    &trans   &trans
-        &trans  &none  &trans &trans &trans          /*=*/ &trans &trans    &trans    &none    &trans
+        &kp F12 &kp F7 &kp F8 &kp F9 &kp PSCRN       /*=*/ &bt BT_CLR &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
+        &kp F11 &kp F4 &kp F5 &kp F6 &kp SCROLLLOCK  /*=*/ &trans     &kp LSHFT    &kp LCTRL    &kp LALT     &kp LCMD
+        &kp F10 &kp F1 &kp F2 &kp F3 &kp PAUSE_BREAK /*=*/ &trans     &trans       &trans       &trans       &trans
+        &trans  &none  &trans &trans &trans          /*=*/ &trans     &trans       &trans       &none        &trans
       >;
     };
   };
