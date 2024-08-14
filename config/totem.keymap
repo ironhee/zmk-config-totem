@@ -71,10 +71,10 @@
     symb_layer {
       label = "SYMB";
       bindings = <
-        &trans    &kp LT          &kp GT         &kp PRCNT        &kp CARET /* */ &trans   &kp GRAVE        &kp LBKT       &kp RBKT       &kp BSLH
-        &lht EXCL &lht LALT MINUS &lht LCMD PLUS &lht LSHFT EQUAL &kp COLON /* */ &kp AT   &rht LSHFT UNDER &rht LCMD LPAR &rht LALT RPAR &rht LCTRL SEMI
-        &kp QMARK &kp FSLH        &kp STAR       &kp PIPE         &kp AMPS  /* */ &kp HASH &kp DLLR         &kp LBRC       &kp RBRC       &kp TILDE
-        &trans    &trans          &trans         &trans           &trans    /* */ &trans   &trans           &trans         &trans         &trans
+        &kp PIPE        &kp LT          &kp GT         &kp AMPS         &trans    /* */ &trans    &trans           &kp LBKT       &kp RBKT       &kp BSLH
+        &lht LCTRL EXCL &lht LALT MINUS &lht LCMD PLUS &lht LSHFT EQUAL &kp PRCNT /* */ &trans    &rht LSHFT UNDER &rht LCMD LPAR &rht LALT RPAR &rht LCTRL GRAVE
+        &kp HASH        &kp FSLH        &kp STAR       &kp PIPE         &kp AMPS  /* */ &kp CARET &kp DLLR         &kp LBRC       &kp RBRC       &kp TILDE
+        &trans          &trans          &trans         &trans           &trans    /* */ &trans    &trans           &trans         &trans         &trans
       >;
     };
     func_layer {
