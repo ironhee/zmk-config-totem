@@ -1,0 +1,222 @@
+layout: {qmk_keyboard: totem}
+layers:
+  base:
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - {t: A, h: '$$mdi:apple-keyboard-control$$'}
+  - {t: S, h: '$$mdi:apple-keyboard-option$$'}
+  - {t: D, h: '$$mdi:apple-keyboard-command$$'}
+  - {t: F, h: '$$mdi:apple-keyboard-shift$$'}
+  - G
+  - H
+  - {t: J, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: K, h: '$$mdi:apple-keyboard-command$$'}
+  - {t: L, h: '$$mdi:apple-keyboard-option$$'}
+  - {t: '''', h: '$$mdi:apple-keyboard-control$$', s: '"'}
+  - Z
+  - X
+  - {t: C, h: '4'}
+  - {t: V, h: '3'}
+  - B
+  - N
+  - {t: M, h: '3'}
+  - {t: ',', h: '2'}
+  - .
+  - {t: /, s: \}
+  - {t: '?', s: '!'}
+  - {type: none}
+  - '&tht 3'
+  - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-command$$'}
+  - {t: '$$mdi:keyboard-space$$', h: navi}
+  - {t: '$$mdi:backspace-outline$$', h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: '$$mdi:backspace-reverse-outline$$', h: numb}
+  - '&tht 3'
+  - {type: none}
+  - ;
+  navi:
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - ⇟
+  - {t: Word, h: '$$mdi:arrow-left-bold$$'}
+  - $$mdi:arrow-up-bold$$
+  - {t: Word, h: '$$mdi:arrow-right-bold$$'}
+  - ⇞
+  - $$mdi:apple-keyboard-control$$
+  - $$mdi:apple-keyboard-option$$
+  - $$mdi:apple-keyboard-command$$
+  - $$mdi:apple-keyboard-shift$$
+  - {type: trans}
+  - Gui+ $$mdi:arrow-left-bold$$
+  - $$mdi:arrow-left-bold$$
+  - $$mdi:arrow-down-bold$$
+  - $$mdi:arrow-right-bold$$
+  - Gui+ $$mdi:arrow-right-bold$$
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - $$mdi:volume-low$$
+  - $$mdi:volume-off$$
+  - $$mdi:volume-high$$
+  - {type: trans}
+  - {type: trans}
+  - {type: none}
+  - {type: trans}
+  - {type: trans}
+  - {type: held}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: none}
+  - {type: trans}
+  numb:
+  - '0'
+  - '7'
+  - '8'
+  - '9'
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - '0'
+  - '4'
+  - '5'
+  - '6'
+  - {type: trans}
+  - {type: trans}
+  - $$mdi:apple-keyboard-shift$$
+  - $$mdi:apple-keyboard-command$$
+  - $$mdi:apple-keyboard-option$$
+  - $$mdi:apple-keyboard-control$$
+  - '0'
+  - '1'
+  - '2'
+  - '3'
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: none}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: held}
+  - {type: trans}
+  - {type: none}
+  - {type: trans}
+  symb:
+  - {type: trans}
+  - <
+  - '>'
+  - '%'
+  - ^
+  - {type: trans}
+  - '`'
+  - '['
+  - ']'
+  - \
+  - '&lht EXCL'
+  - {t: '-', h: '$$mdi:apple-keyboard-option$$'}
+  - {t: +, h: '$$mdi:apple-keyboard-command$$'}
+  - {t: '=', h: '$$mdi:apple-keyboard-shift$$'}
+  - ':'
+  - '@'
+  - {t: _, h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: (, h: '$$mdi:apple-keyboard-command$$'}
+  - {t: ), h: '$$mdi:apple-keyboard-option$$'}
+  - {t: ;, h: '$$mdi:apple-keyboard-control$$'}
+  - '?'
+  - /
+  - '*'
+  - '|'
+  - '&'
+  - '#'
+  - $
+  - '{'
+  - '}'
+  - '~'
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  func:
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - F7
+  - F8
+  - F9
+  - F12
+  - $$mdi:apple-keyboard-control$$
+  - $$mdi:apple-keyboard-option$$
+  - $$mdi:apple-keyboard-command$$
+  - $$mdi:apple-keyboard-shift$$
+  - {type: trans}
+  - {type: trans}
+  - F4
+  - F5
+  - F6
+  - F11
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - F1
+  - F2
+  - F3
+  - F10
+  - {type: trans}
+  - {type: none}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: none}
+  - {type: trans}
+combos:
+- p: [11, 12]
+  k: {t: '$$mdi:keyboard-tab$$', h: 'Alt+ $$mdi:apple-keyboard-command$$'}
+- p: [12, 13]
+  k: {t: '$$mdi:keyboard-return$$', h: 'Sft+ $$mdi:apple-keyboard-command$$'}
+- p: [11, 13]
+  k: {t: '$$mdi:keyboard-esc$$', h: 'Alt+ $$mdi:apple-keyboard-shift$$'}
+- p: [21, 22]
+  k: $$mdi:backspace-reverse-outline$$
+- p: [22, 23]
+  k: $$mdi:backspace-outline$$
+- p: [16, 17]
+  k: {t: 'Ctl+ $$mdi:keyboard-space$$', h: 'Sft+ $$mdi:apple-keyboard-command$$'}
+- p: [17, 18]
+  k: {t: '$$mdi:apple-keyboard-caps$$', h: 'Alt+ $$mdi:apple-keyboard-command$$'}
