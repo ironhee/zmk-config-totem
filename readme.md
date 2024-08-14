@@ -58,8 +58,8 @@ Notation                    │ Description
 ┌─────┤  A  ├─Alt─┤  C  ├─Sft─┼─────┤            ├─────┼─Sft─┤ , < ├─Alt─┤  '  ├─────┐
 │ ? ! ├─Ctl─┤  X  ├■FUNC┤  V  │  B  │            │  N  │  M  ├■NUMB┤ . > ├─Ctl─┤ ; : │
 └─────┤  Z  ├─────┘    ┌┴■SYMB┴────┬┴────┐  ┌────┴┬────┴■SYMB┴┐    └─────┤ / \ ├─────┘
-      └─────┘          │     │Enter│Space│  │Bkspc│ Del │     │          └─────┘
-                       └■SYMB┴─────┴■NAVI┘  └─Sft─┴■NUMB┴■SYMB┘
+      └─────┘          │     │ Cmd │Space│  │ Sft │Bkspc│     │          └─────┘
+                       └■SYMB┴─────┴■NAVI┘  └─────┴■NUMB┴■SYMB┘
 
 ┌─────┐   ┌─────┐   ┌─────┐        ┌─────┐   ┌─────┐   ┌─────┐        ┌─────┐   ┌─────┐   ┌─────┐
 │  S  │ + │  D  │ = │ Tab │        │  D  │ + │  F  │ = │Enter│        │  S  │ + │  F  │ = │ Esc │
