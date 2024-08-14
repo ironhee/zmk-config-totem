@@ -23,12 +23,12 @@ layers:
   - {t: '''', h: '$$mdi:apple-keyboard-control$$', s: '"'}
   - Z
   - X
-  - {t: C, h: '4'}
-  - {t: V, h: '3'}
+  - {t: C, h: func}
+  - {t: V, h: symb}
   - B
   - N
-  - {t: M, h: '3'}
-  - {t: ',', h: '2'}
+  - {t: M, h: symb}
+  - {t: ',', h: numb}
   - .
   - {t: /, s: \}
   - {t: '?', s: '!'}
@@ -110,7 +110,7 @@ layers:
   - {type: trans}
   - {type: trans}
   - {type: trans}
-  - {type: trans}
+  - {type: held}
   - {type: trans}
   - {type: trans}
   - {type: trans}
@@ -119,7 +119,7 @@ layers:
   - {type: trans}
   - {type: trans}
   - {type: trans}
-  - {type: held}
+  - {type: held alternate}
   - {type: trans}
   - {type: none}
   - {type: trans}
@@ -147,10 +147,10 @@ layers:
   - '#'
   - /
   - '*'
-  - '|'
+  - {t: '|', type: held}
   - '&'
   - ^
-  - $
+  - {t: $, type: held alternate}
   - '{'
   - '}'
   - '~'
@@ -187,7 +187,7 @@ layers:
   - F11
   - {type: trans}
   - {type: trans}
-  - {type: trans}
+  - {type: held}
   - {type: trans}
   - {type: trans}
   - {type: trans}
