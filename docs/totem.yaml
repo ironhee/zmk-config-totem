@@ -155,14 +155,14 @@ layers:
   - '}'
   - '~'
   - {type: trans}
+  - {type: none}
   - {type: trans}
   - {type: trans}
   - {type: trans}
   - {type: trans}
   - {type: trans}
   - {type: trans}
-  - {type: trans}
-  - {type: trans}
+  - {type: none}
   - {type: trans}
   func:
   - {type: trans}

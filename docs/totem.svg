@@ -976,8 +976,8 @@ path.combo {
 <g transform="translate(32, 224) rotate(-10.0)" class="key trans keypos-30">
 <rect rx="4" ry="4" x="-30" y="-28" width="61" height="57" class="key trans"/>
 </g>
-<g transform="translate(32, 224) rotate(-10.0)" class="key trans keypos-31">
-<rect rx="4" ry="4" x="-30" y="-28" width="61" height="57" class="key trans"/>
+<g transform="translate(32, 224) rotate(-10.0)" class="key none keypos-31">
+<rect rx="4" ry="4" x="-30" y="-28" width="61" height="57" class="key none"/>
 </g>
 <g transform="translate(268, 253)" class="key trans keypos-32">
 <rect rx="4" ry="4" x="-30" y="-28" width="61" height="57" class="key trans"/>
@@ -997,8 +997,8 @@ path.combo {
 <g transform="translate(634, 253)" class="key trans keypos-37">
 <rect rx="4" ry="4" x="-30" y="-28" width="61" height="57" class="key trans"/>
 </g>
-<g transform="translate(870, 224) rotate(10.0)" class="key trans keypos-38">
-<rect rx="4" ry="4" x="-30" y="-28" width="61" height="57" class="key trans"/>
+<g transform="translate(870, 224) rotate(10.0)" class="key none keypos-38">
+<rect rx="4" ry="4" x="-30" y="-28" width="61" height="57" class="key none"/>
 </g>
 <g transform="translate(870, 224) rotate(10.0)" class="key trans keypos-39">
 <rect rx="4" ry="4" x="-30" y="-28" width="61" height="57" class="key trans"/>
