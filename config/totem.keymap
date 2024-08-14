@@ -6,6 +6,22 @@
 #include "./totem_key_position.h"
 #include "./totem_macro.h"
 
+&sk {
+    release-after-ms = <200>;
+    quick-release;
+};
+
+&lt {
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <175>;
+};
+
+&mt {
+    tapping-term-ms = <280>;
+    quick-tap-ms = <175>;
+};
+
 // Layer
 #define BASE 0
 #define NAVI 1
@@ -44,19 +60,19 @@
     base_layer {
       label = "BASE";
       bindings = <
-        &kp Q        &kp W       &kp E       &kp R        &kp T          /*=*/ &kp Y           &kp U        &kp I          &kp O       &kp P
-        &lht LCTRL A &lht LALT S &lht LCMD D &lht LSHFT F &kp G          /*=*/ &kp H           &rht LSHFT J &rht LCMD K    &rht LALT L &rht LCTRL APOS
-        &kp Z        &kp X       &lt FUNC C  &lt SYMB V   &kp B          /*=*/ &kp N           &lt SYMB M   &lt NUMB COMMA &kp DOT     &m_flsh
-        &m_qmark     &none       &mo SYMB    &kp RET      &lt NAVI SPACE /*=*/ &tht LSHFT BSPC &lt NUMB DEL &mo SYMB       &none       &kp SEMI
+        &kp Q        &kp W       &kp E       &kp R        &kp T          /*=*/ &kp Y     &kp U         &kp I          &kp O       &kp P
+        &lht LCTRL A &lht LALT S &lht LCMD D &lht LSHFT F &kp G          /*=*/ &kp H     &rht LSHFT J  &rht LCMD K    &rht LALT L &rht LCTRL APOS
+        &kp Z        &kp X       &lt FUNC C  &lt SYMB V   &kp B          /*=*/ &kp N     &lt SYMB M    &lt NUMB COMMA &kp DOT     &m_flsh
+        &m_qmark     &none       &mo SYMB    &sk LCMD     &lt NAVI SPACE /*=*/ &sk LSHFT &lt NUMB BSPC &mo SYMB       &none       &kp SEMI
       >;
     };
     navi_layer {
       label = "NAVI";
       bindings = <
-        &kp LG(Q)        &kp LG(W)       &kp LG(E)       &kp LG(R)        &kp LG(T) /*=*/ &kp PG_DN    &wordpv      &kp UP     &wordnx      &kp PG_UP
-        &lht LCTRL LG(A) &lht LALT LG(S) &lht LCMD LG(D) &lht LSHFT LG(F) &kp LG(G) /*=*/ &kp LG(LEFT) &kp LEFT     &kp DOWN   &kp RIGHT    &kp LG(RIGHT)
-        &kp LG(Z)        &kp LG(X)       &kp LG(C)       &kp LG(V)        &kp LG(B) /*=*/ &trans       &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &trans
-        &trans           &none           &trans          &trans           &trans    /*=*/ &trans       &trans       &trans     &none        &trans
+        &trans    &trans   &trans   &trans    &trans /*=*/ &kp PG_DN    &wordpv      &kp UP     &wordnx      &kp PG_UP
+        &kp LCTRL &kp LALT &kp LCMD &kp LSHFT &trans /*=*/ &kp LG(LEFT) &kp LEFT     &kp DOWN   &kp RIGHT    &kp LG(RIGHT)
+        &trans    &trans   &trans   &trans    &trans /*=*/ &trans       &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &trans
+        &trans    &none    &trans   &trans    &trans /*=*/ &trans       &trans       &trans     &none        &trans
       >;
     };
     numb_layer {
