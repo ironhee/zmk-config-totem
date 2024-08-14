@@ -34,7 +34,7 @@ layers:
   - {t: '?', s: '!'}
   - {type: none}
   - symb
-  - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-command$$'}
+  - $$mdi:keyboard-return$$
   - {t: '$$mdi:keyboard-space$$', h: navi}
   - {t: '$$mdi:backspace-outline$$', h: '$$mdi:apple-keyboard-shift$$'}
   - {t: '$$mdi:backspace-reverse-outline$$', h: numb}
@@ -42,31 +42,31 @@ layers:
   - {type: none}
   - ;
   navi:
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
+  - Gui+ Q
+  - Gui+ W
+  - Gui+ E
+  - Gui+ R
+  - Gui+ T
   - ⇟
   - {t: Word, h: '$$mdi:arrow-left-bold$$'}
   - $$mdi:arrow-up-bold$$
   - {t: Word, h: '$$mdi:arrow-right-bold$$'}
   - ⇞
-  - $$mdi:apple-keyboard-control$$
-  - $$mdi:apple-keyboard-option$$
-  - $$mdi:apple-keyboard-command$$
-  - $$mdi:apple-keyboard-shift$$
-  - {type: trans}
+  - {t: Gui+ A, h: '$$mdi:apple-keyboard-control$$'}
+  - {t: Gui+ S, h: '$$mdi:apple-keyboard-option$$'}
+  - {t: Gui+ D, h: '$$mdi:apple-keyboard-command$$'}
+  - {t: Gui+ F, h: '$$mdi:apple-keyboard-shift$$'}
+  - Gui+ G
   - Gui+ $$mdi:arrow-left-bold$$
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-right-bold$$
   - Gui+ $$mdi:arrow-right-bold$$
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
+  - Gui+ Z
+  - Gui+ X
+  - Gui+ C
+  - Gui+ V
+  - Gui+ B
   - {type: trans}
   - $$mdi:volume-low$$
   - $$mdi:volume-off$$
