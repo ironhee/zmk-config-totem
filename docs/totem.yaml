@@ -34,39 +34,39 @@ layers:
   - {t: '?', s: '!'}
   - {type: none}
   - symb
-  - $$mdi:keyboard-return$$
+  - {t: '$$mdi:apple-keyboard-command$$', h: '$$mdi:gesture-tap-hold$$'}
   - {t: '$$mdi:keyboard-space$$', h: navi}
-  - {t: '$$mdi:backspace-outline$$', h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: '$$mdi:backspace-reverse-outline$$', h: numb}
+  - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:gesture-tap-hold$$'}
+  - {t: '$$mdi:backspace-outline$$', h: numb}
   - symb
   - {type: none}
   - ;
   navi:
-  - Gui+ Q
-  - Gui+ W
-  - Gui+ E
-  - Gui+ R
-  - Gui+ T
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
   - ⇟
   - {t: Word, h: '$$mdi:arrow-left-bold$$'}
   - $$mdi:arrow-up-bold$$
   - {t: Word, h: '$$mdi:arrow-right-bold$$'}
   - ⇞
-  - {t: Gui+ A, h: '$$mdi:apple-keyboard-control$$'}
-  - {t: Gui+ S, h: '$$mdi:apple-keyboard-option$$'}
-  - {t: Gui+ D, h: '$$mdi:apple-keyboard-command$$'}
-  - {t: Gui+ F, h: '$$mdi:apple-keyboard-shift$$'}
-  - Gui+ G
+  - $$mdi:apple-keyboard-control$$
+  - $$mdi:apple-keyboard-option$$
+  - $$mdi:apple-keyboard-command$$
+  - $$mdi:apple-keyboard-shift$$
+  - {type: trans}
   - Gui+ $$mdi:arrow-left-bold$$
   - $$mdi:arrow-left-bold$$
   - $$mdi:arrow-down-bold$$
   - $$mdi:arrow-right-bold$$
   - Gui+ $$mdi:arrow-right-bold$$
-  - Gui+ Z
-  - Gui+ X
-  - Gui+ C
-  - Gui+ V
-  - Gui+ B
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
+  - {type: trans}
   - {type: trans}
   - $$mdi:volume-low$$
   - $$mdi:volume-off$$
