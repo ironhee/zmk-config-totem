@@ -124,32 +124,32 @@ layers:
   - {type: none}
   - {type: trans}
   symb:
-  - {type: trans}
+  - '|'
   - <
   - '>'
-  - '%'
-  - ^
+  - '&'
   - {type: trans}
-  - '`'
+  - {type: trans}
+  - {type: trans}
   - '['
   - ']'
   - \
-  - '&lht EXCL'
+  - {t: '!', h: '$$mdi:apple-keyboard-control$$'}
   - {t: '-', h: '$$mdi:apple-keyboard-option$$'}
   - {t: +, h: '$$mdi:apple-keyboard-command$$'}
   - {t: '=', h: '$$mdi:apple-keyboard-shift$$'}
-  - ':'
-  - '@'
+  - '%'
+  - {type: trans}
   - {t: _, h: '$$mdi:apple-keyboard-shift$$'}
   - {t: (, h: '$$mdi:apple-keyboard-command$$'}
   - {t: ), h: '$$mdi:apple-keyboard-option$$'}
-  - {t: ;, h: '$$mdi:apple-keyboard-control$$'}
-  - '?'
+  - {t: '`', h: '$$mdi:apple-keyboard-control$$'}
+  - '#'
   - /
   - '*'
   - '|'
   - '&'
-  - '#'
+  - ^
   - $
   - '{'
   - '}'
