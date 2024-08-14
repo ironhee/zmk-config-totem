@@ -15,17 +15,8 @@
 
 / {
   macros {
-    IRONHEE_MACRO(winpv, <&macro_press &kp LCMD &kp LCTRL>, <&macro_tap &kp LEFT>, <&macro_release &kp LCMD &kp LCTRL>)
-    IRONHEE_MACRO(wintb, <&macro_press &kp LCMD>, <&macro_tap &kp TAB>, <&macro_release &kp LCMD>)
-    IRONHEE_MACRO(winnx, <&macro_press &kp LCMD &kp LCTRL>, <&macro_tap &kp RIGHT>, <&macro_release &kp LCMD &kp LCTRL>)
-    IRONHEE_MACRO(tabnx, <&macro_press &kp LALT>, <&macro_tap &kp TAB>, <&macro_release &kp LALT>)
     IRONHEE_MACRO(wordpv, <&macro_press &kp LALT>, <&macro_tap &kp LEFT>, <&macro_release &kp LALT>)
     IRONHEE_MACRO(wordnx, <&macro_press &kp LALT>, <&macro_tap &kp RIGHT>, <&macro_release &kp LALT>)
-    IRONHEE_MACRO(linesel, <&macro_tap &kp HOME>, <&macro_press &kp LSHFT>, <&macro_tap &kp END>, <&macro_release &kp LSHFT>)
-    IRONHEE_MACRO(ppy_scr, <&macro_tap &kp KP_NUM &kp KP_NUM>)
-    IRONHEE_MACRO(ppy_scr_tog, <&macro_tap &ppy_scr>, <&macro_pause_for_release>, <&macro_tap &ppy_scr>)
-    IRONHEE_MACRO(ppy_dpi, <&macro_tap &kp SLCK &kp SLCK>)
-    IRONHEE_MACRO(ppy_rst, <&macro_tap &kp SLCK &kp SLCK &kp KP_NUM &kp KP_NUM>)
   };
   behaviors {
     // Hold Tap
@@ -46,9 +37,7 @@
     IRONHEE_COMBO_HORI(l_bspc,      L3_3 L3_4, &kp BSPC)
     // Right Hand Combos
     IRONHEE_COMBO_HORI(r_lang, R2_4 R2_3     , &rht LS(LCMD) LC(SPACE))
-    IRONHEE_COMBO_HORI(r_caps,      R2_3 R4_2, &rht LA(LCMD) CAPS)
-    // ETC Combos
-    IRONHEE_COMBO_HORI(mclk,   LA_1      LT_1, &ppy_scr)
+    IRONHEE_COMBO_HORI(r_caps,      R2_3 R2_2, &rht LA(LCMD) CAPS)
   };
   keymap {
     compatible = "zmk,keymap";
