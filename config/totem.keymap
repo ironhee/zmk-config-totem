@@ -47,7 +47,7 @@
         &kp Q        &kp W       &kp E       &kp R         &kp T          /*=*/ &kp Y           &kp U        &kp I          &kp O       &kp P
         &lht LCTRL A &lht LALT S &lht LCMD D &lht LSHFT F  &kp G          /*=*/ &kp H           &rht LSHFT J &rht LCMD K    &rht LALT L &rht LCTRL APOS
         &kp Z        &kp X       &lt FUNC C  &lt SYMB V    &kp B          /*=*/ &kp N           &lt SYMB M   &lt NUMB COMMA &kp DOT     &m_flsh
-        &m_qmark     &none       &tht SYMB   &tht LCMD RET &lt NAVI SPACE /*=*/ &tht LSHFT BSPC &lt NUMB DEL &tht SYMB      &none       &kp SEMI
+        &m_qmark     &none       &mo SYMB    &tht LCMD RET &lt NAVI SPACE /*=*/ &tht LSHFT BSPC &lt NUMB DEL &mo SYMB       &none       &kp SEMI
       >;
     };
     navi_layer {
