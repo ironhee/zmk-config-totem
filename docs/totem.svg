@@ -888,7 +888,7 @@ path.combo {
 </g>
 <g transform="translate(89, 180) rotate(-10.0)" class="key keypos-10">
 <rect rx="4" ry="4" x="-30" y="-28" width="61" height="57" class="key"/>
-<text x="0" y="0" class="key tap">!</text>
+<text x="0" y="0" class="key tap">@</text>
 <use href="#mdi:apple-keyboard-control" xlink:href="#mdi:apple-keyboard-control" x="-7" y="10" height="14" width="14.0" class="key hold glyph mdi:apple-keyboard-control"/>
 </g>
 <g transform="translate(154, 126) rotate(-4.0)" class="key keypos-11">
