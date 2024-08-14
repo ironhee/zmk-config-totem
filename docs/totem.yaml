@@ -33,12 +33,12 @@ layers:
   - {t: /, s: \}
   - {t: '?', s: '!'}
   - {type: none}
-  - '&tht 3'
+  - symb
   - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-command$$'}
   - {t: '$$mdi:keyboard-space$$', h: navi}
   - {t: '$$mdi:backspace-outline$$', h: '$$mdi:apple-keyboard-shift$$'}
   - {t: '$$mdi:backspace-reverse-outline$$', h: numb}
-  - '&tht 3'
+  - symb
   - {type: none}
   - ;
   navi:
@@ -156,12 +156,12 @@ layers:
   - '~'
   - {type: trans}
   - {type: none}
+  - {type: held alternate}
   - {type: trans}
   - {type: trans}
   - {type: trans}
   - {type: trans}
-  - {type: trans}
-  - {type: trans}
+  - {type: held alternate}
   - {type: none}
   - {type: trans}
   func:
