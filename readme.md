@@ -57,7 +57,7 @@ Notation                    │ Description
       ├─────┤  S  ├─Cmd─┤  F  │  G  │            │  H  │  J  ├─Cmd─┤  L  ├─────┤
 ┌─────┤  A  ├─Alt─┤  C  ├─Sft─┼─────┤            ├─────┼─Sft─┤ , < ├─Alt─┤  '  ├─────┐
 │ ? ! ├─Ctl─┤  X  ├■FUNC┤  V  │  B  │            │  N  │  M  ├■NUMB┤ . > ├─Ctl─┤ ; : │
-└─────┤  Z  ├─────┘    ┌┴■SYMB┴────┬┴────┐  ┌────┴■SYMB┴┬────┴┐    └─────┤ / \ ├─────┘
+└─────┤  Z  ├─────┘    ┌┴■SYMB┴────┬┴────┐  ┌────┴┬────┴■SYMB┴┐    └─────┤ / \ ├─────┘
       └─────┘          │     │Enter│Space│  │Bkspc│ Del │     │          └─────┘
                        └■SYMB┴─Cmd─┴■NAVI┘  └─Sft─┴■NUMB┴■SYMB┘
 
