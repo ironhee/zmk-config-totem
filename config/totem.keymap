@@ -57,10 +57,10 @@
     base_layer {
       label = "BASE";
       bindings = <
-        &kp Q        &kp W       &kp E         &kp R        &kp T          /*=*/ &kp Y     &kp U         &kp I          &kp O       &kp P
-        &lht LCMD A  &lht LALT S &lht LCTL D   &lht LSHFT F &kp G          /*=*/ &kp H     &rht LSHFT J  &rht LCTL K    &rht LALT L &rht LCMD SEMI
-        &kp Z        &kp X       &kp C         &kp V        &kp B          /*=*/ &kp N     &kp M         &COMMA_QMARK   &DOT_EXCL   &kp APOS
-        &kp LC(LEFT) &none       &kp LC(RIGHT) &sk LCMD     &lt NAVI SPACE /*=*/ &sk LSHFT &lt SYMB BSPC &kp C_PP       &none       &FSLH_BSLH
+        &kp Q        &kp W       &kp E         &kp R         &kp T          /*=*/ &kp Y     &kp U         &kp I          &kp O       &kp P
+        &lht LCMD A  &lht LALT S &lht LCTL D   &lht LSHFT F  &kp G          /*=*/ &kp H     &rht LSHFT J  &rht LCTL K    &rht LALT L &rht LCMD SEMI
+        &kp Z        &kp X       &kp C         &kp V         &kp B          /*=*/ &kp N     &kp M         &COMMA_QMARK   &DOT_EXCL   &kp APOS
+        &kp LC(LEFT) &none       &kp LC(RIGHT) &tht LCMD RET &lt NAVI SPACE /*=*/ &sk LSHFT &lt SYMB BSPC &kp C_PP       &none       &FSLH_BSLH
       >;
     };
     navi_layer {
