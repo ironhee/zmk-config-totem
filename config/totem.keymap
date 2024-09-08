@@ -71,12 +71,12 @@
         &kp N0       &kp N1       &kp N2       &kp N3        &trans /*=*/ &trans &kp HOME        &kp PG_DN      &kp PG_UP    &kp END
         &trans       &none        &trans       &trans        &trans /*=*/ &trans &trans          &trans         &none        &trans
       >;
-    };    
+    };
     symb_layer {
       label = "SYMB";
       bindings = <
         &trans          &kp PIPE        &kp AMPS       &trans           &trans /* */ &trans    &kp GRAVE       &kp CARET      &kp DLLR       &kp BSLH
-        &lht LCMD TILDE &lht LALT MINUS &lht LCTL PLUS &lht LSHFT EQUAL &kp AT /* */ &kp PRCNT &rht LSHFT LBRC &rht LCTL LBKT &rht LALT RBKR &rht LCMD RBRC
+        &lht LCMD TILDE &lht LALT MINUS &lht LCTL PLUS &lht LSHFT EQUAL &kp AT /* */ &kp PRCNT &rht LSHFT LBRC &rht LCTL LBKT &rht LALT RBKT &rht LCMD RBRC
         &kp HASH        &kp FSLH        &kp STAR       &kp UNDER        &trans /* */ &trans    &kp LPAR        &kp LT         &kp GT         &kp RPAR
         &trans          &none           &trans         &trans           &trans /* */ &trans    &trans          &trans         &none          &trans
       >;
