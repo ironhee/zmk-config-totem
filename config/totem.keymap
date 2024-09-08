@@ -25,81 +25,58 @@
 // Layer
 #define BASE 0
 #define NAVI 1
-#define NUMB 2
-#define SYMB 3
-#define FUNC 4
+#define SYMB 2
 
 / {
-  macros {
-    IRONHEE_MACRO(wordpv, <&macro_press &kp LALT>, <&macro_tap &kp LEFT>, <&macro_release &kp LALT>)
-    IRONHEE_MACRO(wordnx, <&macro_press &kp LALT>, <&macro_tap &kp RIGHT>, <&macro_release &kp LALT>)
-  };
   behaviors {
     // Hold Tap
     IRONHEE_THUM_ROW(tht, &kp, &kp) // thumb keys
     IRONHEE_HOME_ROW(lht, &kp, &kp, R1_X R2_X R3_X LA_X LT_X) // left keys
     IRONHEE_HOME_ROW(rht, &kp, &kp, L1_X L2_X L3_X RA_X RT_X) // right keys
     // Morp Shift
-    IRONHEE_MORP_SHIFT(m_flsh,   &kp FSLH,  &kp BSLH)
-    IRONHEE_MORP_SHIFT(m_qmark,  &kp QMARK, &kp EXCL)
+    IRONHEE_MORP_SHIFT(COMMA_QMARK, &kp COMMA, &kp QMARK)
+    IRONHEE_MORP_SHIFT(DOT_EXCL,    &kp DOT,   &kp EXCL)
+    IRONHEE_MORP_SHIFT(FSLH_BSLH,   &kp FSLH,  &kp BSLH)
   };
   combos {
     compatible = "zmk,combos";
     // Left Hand Combo
-    IRONHEE_COMBO_HORI(l_tab,  L2_2 L2_3     , &lht LA(LCMD) TAB)
-    IRONHEE_COMBO_HORI(l_ret,       L2_3 L2_4, &lht LS(LCMD) RET)
-    IRONHEE_COMBO_HORI(l_esc,  L2_2      L2_4, &lht LA(LSHFT) ESC)
-    IRONHEE_COMBO_HORI(l_del,  L3_2 L3_3     , &kp DEL)
-    IRONHEE_COMBO_HORI(l_bspc,      L3_3 L3_4, &kp BSPC)
+    IRONHEE_COMBO_HORI(l_del,  L2_1 L2_2               , &lht LA(LCMD) DEL)
+    IRONHEE_COMBO_HORI(l_tab,       L2_2 L2_3          , &lht LA(LCTL) TAB)
+    IRONHEE_COMBO_HORI(l_ret,            L2_3 L2_4     , &lht LS(LCTL) RET)
+    IRONHEE_COMBO_HORI(l_esc,       L2_2      L2_4     , &lht LA(LSHFT) ESC)
+    IRONHEE_COMBO_HORI(l_bspc,                L2_4 L2_5, &kp BSPC)
     // Right Hand Combos
-    IRONHEE_COMBO_HORI(r_lang, R2_4 R2_3     , &rht LS(LCMD) LC(SPACE))
-    IRONHEE_COMBO_HORI(r_caps,      R2_3 R2_2, &rht LA(LCMD) CAPS)
+    IRONHEE_COMBO_HORI(r_lang,      R2_4 R2_3          , &rht LS(LCTL) LC(SPACE))
+    IRONHEE_COMBO_HORI(r_caps,           R2_3 R2_2     , &rht LA(LCTL) CAPS)
   };
   keymap {
     compatible = "zmk,keymap";
     base_layer {
       label = "BASE";
       bindings = <
-        &kp Q        &kp W       &kp E       &kp R        &kp T          /*=*/ &kp Y     &kp U         &kp I          &kp O       &kp P
-        &lht LCTRL A &lht LALT S &lht LCMD D &lht LSHFT F &kp G          /*=*/ &kp H     &rht LSHFT J  &rht LCMD K    &rht LALT L &rht LCTRL APOS
-        &kp Z        &kp X       &lt FUNC C  &lt SYMB V   &kp B          /*=*/ &kp N     &lt SYMB M    &lt NUMB COMMA &kp DOT     &m_flsh
-        &m_qmark     &none       &mo SYMB    &sk LCMD     &lt NAVI SPACE /*=*/ &sk LSHFT &lt NUMB BSPC &mo SYMB       &none       &kp SEMI
+        &kp Q       &kp W       &kp E       &kp R        &kp T          /*=*/ &kp Y     &kp U         &kp I          &kp O       &kp P
+        &lht LCMD A &lht LALT S &lht LCTL D &lht LSHFT F &kp G          /*=*/ &kp H     &rht LSHFT J  &rht LCTL K    &rht LALT L &rht LCMD SEMI
+        &kp Z       &kp X       &kp C       &kp V        &kp B          /*=*/ &kp N     &kp M         &COMMA_QMARK   &DOT_EXCL   &kp APOS
+        &kp EQUAL   &none       &mo SYMB    &sk LCMD     &lt NAVI SPACE /*=*/ &sk LSHFT &lt SYMB BSPC &mo SYMB       &none       &FSLH_BSLH
       >;
     };
     navi_layer {
       label = "NAVI";
       bindings = <
-        &trans    &trans   &trans   &trans    &trans /*=*/ &kp PG_DN    &wordpv      &kp UP     &wordnx      &kp PG_UP
-        &kp LCTRL &kp LALT &kp LCMD &kp LSHFT &trans /*=*/ &kp LG(LEFT) &kp LEFT     &kp DOWN   &kp RIGHT    &kp LG(RIGHT)
-        &trans    &trans   &trans   &trans    &trans /*=*/ &trans       &kp C_VOL_DN &kp C_MUTE &kp C_VOL_UP &trans
-        &trans    &none    &trans   &trans    &trans /*=*/ &trans       &trans       &trans     &none        &trans
+        &kp N0       &kp N7       &kp N8       &kp N9        &trans /*=*/ &trans &kp LA(LEFT)    &kp LA(DOWN)   &kp LA(UP)   &kp LA(RIGHT)
+        &lht LCMD N0 &lht LALT N4 &lht LCTL N5 &lht LSHFT N6 &trans /*=*/ &trans &rht LSHFT LEFT &rht LCTL DOWN &rht LALT UP &rht LCMD RIGHT
+        &kp N0       &kp N1       &kp N2       &kp N3        &trans /*=*/ &trans &kp HOME        &kp PG_DN      &kp PG_UP    &kp END
+        &trans       &none        &trans       &trans        &trans /*=*/ &trans &trans          &trans         &none        &trans
       >;
-    };
-    numb_layer {
-      label = "NUMB";
-      bindings = <
-        &kp N0 &kp N7 &kp N8 &kp N9 &trans /*=*/ &trans &trans    &trans   &trans   &trans
-        &kp N0 &kp N4 &kp N5 &kp N6 &trans /*=*/ &trans &kp LSHFT &kp LCMD &kp LALT &kp LCTRL
-        &kp N0 &kp N1 &kp N2 &kp N3 &trans /*=*/ &trans &trans    &trans   &trans   &trans
-        &trans &none  &trans &trans &trans /*=*/ &trans &trans    &trans   &none    &trans
-      >;
-    };
+    };    
     symb_layer {
       label = "SYMB";
       bindings = <
-        &kp PIPE      &kp LT          &kp GT         &kp AMPS         &trans    /* */ &trans    &trans           &kp LBKT       &kp RBKT       &kp BSLH
-        &lht LCTRL AT &lht LALT MINUS &lht LCMD PLUS &lht LSHFT EQUAL &kp PRCNT /* */ &trans    &rht LSHFT UNDER &rht LCMD LPAR &rht LALT RPAR &rht LCTRL GRAVE
-        &kp HASH      &kp FSLH        &kp STAR       &kp PIPE         &kp AMPS  /* */ &kp CARET &kp DLLR         &kp LBRC       &kp RBRC       &kp TILDE
-        &trans        &none           &trans         &trans           &trans    /* */ &trans    &trans           &trans         &none          &trans
-      >;
-    };
-    func_layer {
-      label = "FUNC";
-      bindings = <
-        &trans    &trans   &trans   &trans    &trans /*=*/ &trans &kp F7  &kp F8 &kp F9 &kp F12
-        &kp LCTRL &kp LALT &kp LCMD &kp LSHFT &trans /*=*/ &trans &kp F4  &kp F5 &kp F6 &kp F11
-        &trans    &trans   &trans   &trans    &trans /*=*/ &trans &kp F1  &kp F2 &kp F3 &kp F10
-        &trans    &none    &trans   &trans    &trans /*=*/ &trans &trans  &trans &none  &trans
+        &trans          &kp PIPE        &kp AMPS       &trans           &trans /* */ &trans    &kp GRAVE       &kp CARET      &kp DLLR       &kp BSLH
+        &lht LCMD TILDE &lht LALT MINUS &lht LCTL PLUS &lht LSHFT EQUAL &kp AT /* */ &kp PRCNT &rht LSHFT LBRC &rht LCTL LBKT &rht LALT RBKR &rht LCMD RBRC
+        &kp HASH        &kp FSLH        &kp STAR       &kp UNDER        &trans /* */ &trans    &kp LPAR        &kp LT         &kp GT         &kp RPAR
+        &trans          &none           &trans         &trans           &trans /* */ &trans    &trans          &trans         &none          &trans
       >;
     };
   };
