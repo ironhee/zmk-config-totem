@@ -11,212 +11,132 @@ layers:
   - I
   - O
   - P
-  - {t: A, h: '$$mdi:apple-keyboard-control$$'}
+  - {t: A, h: '$$mdi:apple-keyboard-command$$'}
   - {t: S, h: '$$mdi:apple-keyboard-option$$'}
-  - {t: D, h: '$$mdi:apple-keyboard-command$$'}
+  - {t: D, h: LCTL}
   - {t: F, h: '$$mdi:apple-keyboard-shift$$'}
   - G
   - H
   - {t: J, h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: K, h: '$$mdi:apple-keyboard-command$$'}
+  - {t: K, h: LCTL}
   - {t: L, h: '$$mdi:apple-keyboard-option$$'}
-  - {t: '''', h: '$$mdi:apple-keyboard-control$$', s: '"'}
+  - {t: ;, h: '$$mdi:apple-keyboard-command$$'}
   - Z
   - X
-  - {t: C, h: func}
-  - {t: V, h: symb}
+  - C
+  - V
   - B
   - N
-  - {t: M, h: symb}
-  - {t: ',', h: numb}
-  - .
-  - {t: /, s: \}
-  - {t: '?', s: '!'}
+  - M
+  - {t: ',', s: '?'}
+  - {t: ., s: '!'}
+  - {t: '''', s: '"'}
+  - Ctl+ $$mdi:arrow-left-bold$$
   - {type: none}
-  - symb
-  - {t: '$$mdi:apple-keyboard-command$$', h: '$$mdi:gesture-tap-hold$$'}
+  - Ctl+ $$mdi:arrow-right-bold$$
   - {t: '$$mdi:keyboard-space$$', h: navi}
+  - {t: '$$mdi:keyboard-return$$', h: '$$mdi:apple-keyboard-command$$'}
+  - {t: '$$mdi:backspace-outline$$', h: symb}
   - {t: '$$mdi:apple-keyboard-shift$$', h: '$$mdi:gesture-tap-hold$$'}
-  - {t: '$$mdi:backspace-outline$$', h: numb}
-  - symb
+  - PP
   - {type: none}
-  - ;
+  - {t: /, s: \}
   navi:
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - ⇟
-  - {t: Word, h: '$$mdi:arrow-left-bold$$'}
-  - $$mdi:arrow-up-bold$$
-  - {t: Word, h: '$$mdi:arrow-right-bold$$'}
-  - ⇞
-  - $$mdi:apple-keyboard-control$$
-  - $$mdi:apple-keyboard-option$$
-  - $$mdi:apple-keyboard-command$$
-  - $$mdi:apple-keyboard-shift$$
-  - {type: trans}
-  - Gui+ $$mdi:arrow-left-bold$$
-  - $$mdi:arrow-left-bold$$
-  - $$mdi:arrow-down-bold$$
-  - $$mdi:arrow-right-bold$$
-  - Gui+ $$mdi:arrow-right-bold$$
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - $$mdi:volume-low$$
-  - $$mdi:volume-off$$
-  - $$mdi:volume-high$$
-  - {type: trans}
-  - {type: trans}
-  - {type: none}
-  - {type: trans}
-  - {type: trans}
-  - {type: held}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: none}
-  - {type: trans}
-  numb:
   - '0'
   - '7'
   - '8'
   - '9'
   - {type: trans}
   - {type: trans}
+  - Alt+ $$mdi:arrow-left-bold$$
+  - Alt+ $$mdi:arrow-down-bold$$
+  - Alt+ $$mdi:arrow-up-bold$$
+  - Alt+ $$mdi:arrow-right-bold$$
+  - {t: '0', h: '$$mdi:apple-keyboard-command$$'}
+  - {t: '4', h: '$$mdi:apple-keyboard-option$$'}
+  - {t: '5', h: LCTL}
+  - {t: '6', h: '$$mdi:apple-keyboard-shift$$'}
   - {type: trans}
   - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - '0'
-  - '4'
-  - '5'
-  - '6'
-  - {type: trans}
-  - {type: trans}
-  - $$mdi:apple-keyboard-shift$$
-  - $$mdi:apple-keyboard-command$$
-  - $$mdi:apple-keyboard-option$$
-  - $$mdi:apple-keyboard-control$$
+  - {t: '$$mdi:arrow-left-bold$$', h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: '$$mdi:arrow-down-bold$$', h: LCTL}
+  - {t: '$$mdi:arrow-up-bold$$', h: '$$mdi:apple-keyboard-option$$'}
+  - {t: '$$mdi:arrow-right-bold$$', h: '$$mdi:apple-keyboard-command$$'}
   - '0'
   - '1'
   - '2'
   - '3'
   - {type: trans}
   - {type: trans}
+  - ⇱
+  - ⇟
+  - ⇞
+  - ⇲
+  - {type: trans}
+  - {type: none}
   - {type: trans}
   - {type: held}
   - {type: trans}
   - {type: trans}
   - {type: trans}
-  - {type: none}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: held alternate}
   - {type: trans}
   - {type: none}
   - {type: trans}
   symb:
+  - {type: trans}
   - '|'
-  - <
-  - '>'
   - '&'
   - {type: trans}
   - {type: trans}
   - {type: trans}
-  - '['
-  - ']'
+  - '`'
+  - ^
+  - $
   - \
-  - {t: '@', h: '$$mdi:apple-keyboard-control$$'}
+  - {t: '~', h: '$$mdi:apple-keyboard-command$$'}
   - {t: '-', h: '$$mdi:apple-keyboard-option$$'}
-  - {t: +, h: '$$mdi:apple-keyboard-command$$'}
+  - {t: +, h: LCTL}
   - {t: '=', h: '$$mdi:apple-keyboard-shift$$'}
+  - '@'
   - '%'
-  - {type: trans}
-  - {t: _, h: '$$mdi:apple-keyboard-shift$$'}
-  - {t: (, h: '$$mdi:apple-keyboard-command$$'}
-  - {t: ), h: '$$mdi:apple-keyboard-option$$'}
-  - {t: '`', h: '$$mdi:apple-keyboard-control$$'}
+  - {t: '{', h: '$$mdi:apple-keyboard-shift$$'}
+  - {t: '[', h: LCTL}
+  - {t: ']', h: '$$mdi:apple-keyboard-option$$'}
+  - {t: '}', h: '$$mdi:apple-keyboard-command$$'}
   - '#'
   - /
   - '*'
-  - {t: '|', type: held}
-  - '&'
-  - ^
-  - {t: $, type: held alternate}
-  - '{'
-  - '}'
-  - '~'
+  - _
+  - {type: trans}
+  - {type: trans}
+  - (
+  - <
+  - '>'
+  - )
   - {type: trans}
   - {type: none}
-  - {type: held alternate}
   - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: held alternate}
-  - {type: none}
-  - {type: trans}
-  func:
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - F7
-  - F8
-  - F9
-  - F12
-  - $$mdi:apple-keyboard-control$$
-  - $$mdi:apple-keyboard-option$$
-  - $$mdi:apple-keyboard-command$$
-  - $$mdi:apple-keyboard-shift$$
-  - {type: trans}
-  - {type: trans}
-  - F4
-  - F5
-  - F6
-  - F11
   - {type: trans}
   - {type: trans}
   - {type: held}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - F1
-  - F2
-  - F3
-  - F10
-  - {type: trans}
-  - {type: none}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
-  - {type: trans}
   - {type: trans}
   - {type: trans}
   - {type: none}
   - {type: trans}
 combos:
+- p: [10, 11]
+  k: {t: '$$mdi:backspace-reverse-outline$$', h: 'Alt+ $$mdi:apple-keyboard-command$$'}
 - p: [11, 12]
-  k: {t: '$$mdi:keyboard-tab$$', h: 'Alt+ $$mdi:apple-keyboard-command$$'}
+  k: {t: '$$mdi:keyboard-tab$$', h: Alt+ LCTL}
 - p: [12, 13]
-  k: {t: '$$mdi:keyboard-return$$', h: 'Sft+ $$mdi:apple-keyboard-command$$'}
+  k: {t: '$$mdi:keyboard-return$$', h: Sft+ LCTL}
 - p: [11, 13]
   k: {t: '$$mdi:keyboard-esc$$', h: 'Alt+ $$mdi:apple-keyboard-shift$$'}
-- p: [21, 22]
-  k: $$mdi:backspace-reverse-outline$$
-- p: [22, 23]
+- p: [13, 14]
   k: $$mdi:backspace-outline$$
 - p: [16, 17]
-  k: {t: 'Ctl+ $$mdi:keyboard-space$$', h: 'Sft+ $$mdi:apple-keyboard-command$$'}
+  k: {t: 'Ctl+ $$mdi:keyboard-space$$', h: Sft+ LCTL}
 - p: [17, 18]
-  k: {t: '$$mdi:apple-keyboard-caps$$', h: 'Alt+ $$mdi:apple-keyboard-command$$'}
+  k: {t: '$$mdi:apple-keyboard-caps$$', h: Alt+ LCTL}
+- p: [30, 32]
+  k: Ctl+ $$mdi:arrow-up-bold$$
