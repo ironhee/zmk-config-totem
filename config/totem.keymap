@@ -76,7 +76,6 @@ MORP_SHIFT(M_FSLH,  &kp FSLH,  &kp BSLH)
 #define A_UP       &kp LA(UP)
 #define A_DOWN     &kp LA(DOWN)
 
-
 /*=====================*/
 /* Layer               */
 /*=====================*/
@@ -122,10 +121,10 @@ ZMK_LAYER(symb_layer, /*
 /*=====================*/
 /* Combo               */
 /*=====================*/
-ZMK_COMBO(l_del,  &LH12(DEL)    , L2_1 L2_2)
-ZMK_COMBO(l_tab,  &LH23(TAB)    , L2_2 L2_3)
-ZMK_COMBO(l_ret,  &LH24(RET)    , L2_3 L2_4)
-ZMK_COMBO(l_esc,  &LH24(ESC)    , L2_2 L2_4)
-ZMK_COMBO(l_bspc, &kp BSPC      , L2_4 L2_5)
-ZMK_COMBO(r_lang, &RH34(LANGCHG), R2_4 R2_3)
-ZMK_COMBO(r_caps, &RH23(CAPS)   , R2_3 R2_2)
+ZMK_COMBO(l_del,  LH12(DEL)    , L2_1 L2_2)
+ZMK_COMBO(l_tab,  LH23(TAB)    , L2_2 L2_3)
+ZMK_COMBO(l_ret,  LH24(RET)    , L2_3 L2_4)
+ZMK_COMBO(l_esc,  LH24(ESC)    , L2_2 L2_4)
+ZMK_COMBO(l_bspc, &kp BSPC     , L2_4 L2_5)
+ZMK_COMBO(r_lang, RH34(LANGCHG), R2_4 R2_3)
+ZMK_COMBO(r_caps, RH23(CAPS)   , R2_3 R2_2)
