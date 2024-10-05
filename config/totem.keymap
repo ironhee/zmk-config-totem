@@ -64,12 +64,11 @@ MORP_SHIFT(M_FSLH,  &kp FSLH,  &kp BSLH)
 #define SCR_REC    &kp LS(LG(N5))
 #define SCR_PRV    &kp LC(LEFT)
 #define SCR_NXT    &kp LC(RIGHT)
-#define LANGCHG    &kp LC(SPACE)
 
 #define SYMB_RET   &tlt SYMB RET
 #define NAVI_SPC   &tlt NAVI SPACE
 #define SHFT_BSP   &tmt LSHFT BSPC
-#define SYMB_ESC   &tlt SYMB ESC
+#define SYMB_LANG  &tlt SYMB LC(SPACE)
 
 #define A_LEFT     &kp LA(LEFT)
 #define A_RIGHT    &kp LA(RIGHT)
@@ -88,7 +87,7 @@ ZMK_LAYER(base_layer, /*
 */&kp Z        &kp X        &kp C        &kp V        &kp B         &kp N        &kp M        &M_COMMA     &M_DOT       &M_FSLH   /*
 ╰────────────┴────────────┴────────────┴────────────┴────────────╯╰────────────┴────────────┴────────────┴────────────┴────────────╯
 ╭────────────╮            ╭────────────┬────────────┬────────────╮╭────────────┬────────────┬────────────╮            ╭────────────╮
-*/SCR_PRV      &none        SCR_NXT      SYMB_RET     NAVI_SPC      SHFT_BSP     SYMB_ESC     &kp C_PP     &none        &kp APOS  /*
+*/SCR_PRV      &none        SCR_NXT      SYMB_RET     NAVI_SPC      SHFT_BSP     SYMB_LANG    &kp C_PP     &none        &kp APOS  /*
 ╰────────────╯            ╰────────────┴────────────┴────────────╯╰────────────┴────────────┴────────────╯            ╰────────────╯
 */)
 
@@ -131,6 +130,13 @@ ZMK_COMBO(l_tab,  LH23(TAB)    , L2_2 L2_3, BASE NAVI SYMB, COMBO_TERM_FAST, COM
 ZMK_COMBO(l_ret,  LH24(RET)    , L2_3 L2_4, BASE NAVI SYMB, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 ZMK_COMBO(l_esc,  LH24(ESC)    , L2_2 L2_4, BASE NAVI SYMB, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 ZMK_COMBO(l_bspc, &kp BSPC     , L2_4 L2_5, BASE NAVI SYMB, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(r_lang, RH34(LANGCHG), R2_4 R2_3, BASE NAVI SYMB, COMBO_TERM_FAST, COMBO_IDLE_FAST)
-ZMK_COMBO(r_caps, RH23(CAPS)   , R2_3 R2_2, BASE NAVI SYMB, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+
+ZMK_COMBO(r_lbkt, &kp LBKT     , R1_4 R1_3, BASE NAVI SYMB, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(r_rbkt, &kp RBKT     , R1_3 R1_2, BASE NAVI SYMB, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(r_lpar, RH34(LPAR)   , R2_4 R2_3, BASE NAVI SYMB, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(r_rpar, RH23(RPAR)   , R2_3 R2_2, BASE NAVI SYMB, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(r_lbrc, &kp LBRC     , R2_5 R2_4, BASE NAVI SYMB, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(r_rbrc, RH12(RBRC)   , R2_2 R2_1, BASE NAVI SYMB, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(r_lt  , &kp LT       , R3_4 R3_3, BASE NAVI SYMB, COMBO_TERM_FAST, COMBO_IDLE_FAST)
+ZMK_COMBO(r_gt  , &kp GT       , R3_3 R3_2, BASE NAVI SYMB, COMBO_TERM_FAST, COMBO_IDLE_FAST)
 
