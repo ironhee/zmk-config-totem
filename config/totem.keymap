@@ -29,13 +29,17 @@ ZMK_HOLD_TAP(tlt, HT          HT_LT)
     mods = <(MOD_LSFT|MOD_RSFT)>; \
     bindings = <BASE>, <SHIFTED>; \
   )
-MORP_SHIFT(COMMA_QMARK, &kp COMMA, &kp QMARK)
-MORP_SHIFT(DOT_EXCL,    &kp DOT,   &kp EXCL)
-MORP_SHIFT(FSLH_BSLH,   &kp FSLH,  &kp BSLH)
+MORP_SHIFT(M_COMMA, &kp COMMA, &kp QMARK)
+MORP_SHIFT(M_DOT,   &kp DOT,   &kp EXCL)
+MORP_SHIFT(M_FSLH,  &kp FSLH,  &kp BSLH)
 
 /*=====================*/
 /* Alias               */
 /*=====================*/
+#define BASE 0
+#define NAVI 1
+#define SYMB 2
+
 #define LH1(keycode) &lmt LGUI keycode
 #define LH2(keycode) &lmt LALT keycode
 #define LH3(keycode) &lmt LCTRL keycode
@@ -54,13 +58,66 @@ MORP_SHIFT(FSLH_BSLH,   &kp FSLH,  &kp BSLH)
 #define RH24(keycode) &rmt LA(LSHFT) keycode
 #define RH34(keycode) &rmt LC(LSHFT) keycode
 
-#define _____ &trans
-#define EMOJI &kp LC(LG(SPACE))
-#define SCR_CAP &kp LS(LC(LG(N4)))
-#define SCR_REC &kp LS(LG(N5))
-#define SCR_PRV &kp LC(LEFT)
-#define SCR_NXT &kp LC(RIGHT)
-#define LANGCHG &kp LC(RIGHT)
+#define __________ &trans
+#define EMOJI      &kp LC(LG(SPACE))
+#define SCR_CAP    &kp LS(LC(LG(N4)))
+#define SCR_REC    &kp LS(LG(N5))
+#define SCR_PRV    &kp LC(LEFT)
+#define SCR_NXT    &kp LC(RIGHT)
+#define LANGCHG    &kp LC(RIGHT)
+
+#define SYMB_RET   &tlt SYMB RET
+#define NAVI_SPC   &tlt NAVI SPACE
+#define SHFT_BSP   &tmt LSHFT BSPC
+#define SYMB_ESC   &tlt SYMB ESC
+
+#define A_LEFT     &kp LA(LEFT)
+#define A_RIGHT    &kp LA(RIGHT)
+#define A_UP       &kp LA(UP)
+#define A_DOWN     &kp LA(DOWN)
+
+
+/*=====================*/
+/* Layer               */
+/*=====================*/
+ZMK_LAYER(base_layer, /*
+╭────────────┬────────────┬────────────┬────────────┬────────────╮╭────────────┬────────────┬────────────┬────────────┬────────────╮
+*/&kp Q        &kp W        &kp E        &kp R        &kp T         &kp Y        &kp U        &kp I        &kp O        &kp P     /*
+├────────────┼────────────┼────────────┼────────────┼────────────┤├────────────┼────────────┼────────────┼────────────┼────────────┤
+*/LH1(A)       LH2(S)       LH3(D)       LH4(F)       &kp G         &kp H        RH4(J)       RH3(K)       RH2(L)       RH1(SEMI) /*
+├────────────┼────────────┼────────────┼────────────┼────────────┤├────────────┼────────────┼────────────┼────────────┼────────────┤
+*/&kp Z        &kp X        &kp C        &kp V        &kp B         &kp N        &kp M        &M_COMMA     &M_DOT       &M_FSLH   /*
+╰────────────┴────────────┴────────────┴────────────┴────────────╯╰────────────┴────────────┴────────────┴────────────┴────────────╯
+╭────────────╮            ╭────────────┬────────────┬────────────╮╭────────────┬────────────┬────────────╮            ╭────────────╮
+*/SCR_PRV      &none        SCR_NXT      SYMB_RET     NAVI_SPC      SHFT_BSP     SYMB_ESC     &kp C_PP     &none        &kp APOS  /*
+╰────────────╯            ╰────────────┴────────────┴────────────╯╰────────────┴────────────┴────────────╯            ╰────────────╯
+*/)
+
+ZMK_LAYER(navi_layer, /*
+╭────────────┬────────────┬────────────┬────────────┬────────────╮╭────────────┬────────────┬────────────┬────────────┬────────────╮
+*/&kp N0       &kp N7       &kp N8       &kp N9       __________    __________   A_LEFT       A_DOWN       A_UP         A_RIGHT   /*
+├────────────┼────────────┼────────────┼────────────┼────────────┤├────────────┼────────────┼────────────┼────────────┼────────────┤
+*/LH1(N0)      LH2(N4)      LH3(N5)      LH4(N6)      __________    __________   RH4(LEFT)    RH3(DOWN)    RH2(UP)      RH1(RIGHT)/*
+├────────────┼────────────┼────────────┼────────────┼────────────┤├────────────┼────────────┼────────────┼────────────┼────────────┤
+*/&kp N0       &kp N1       &kp N2       &kp N3       __________    __________   &kp HOME     &kp PG_DN    &kp PG_UP    &kp END   /*
+╰────────────┴────────────┴────────────┴────────────┴────────────╯╰────────────┴────────────┴────────────┴────────────┴────────────╯
+╭────────────╮            ╭────────────┬────────────┬────────────╮╭────────────┬────────────┬────────────╮            ╭────────────╮
+*/__________   __________   __________   __________   __________    __________   __________   __________   __________   __________/*
+╰────────────╯            ╰────────────┴────────────┴────────────╯╰────────────┴────────────┴────────────╯            ╰────────────╯
+*/)
+
+ZMK_LAYER(symb_layer, /*
+╭────────────┬────────────┬────────────┬────────────┬────────────╮╭────────────┬────────────┬────────────┬────────────┬────────────╮
+*/__________   &kp PIPE     &kp AMPS     __________   __________    &kp GRAVE    &kp CARET    &kp LBKT     &kp RBKT     &kp DLLR  /*
+├────────────┼────────────┼────────────┼────────────┼────────────┤├────────────┼────────────┼────────────┼────────────┼────────────┤
+*/LH1(TILDE)   LH2(MINUS)   LH3(PLUS)    LH4(EQUAL)   &kp AT        &kp PRCNT    RH4(LBRC)    RH3(LPAR)    RH2(RPAR)    RH1(RBRC) /*
+├────────────┼────────────┼────────────┼────────────┼────────────┤├────────────┼────────────┼────────────┼────────────┼────────────┤
+*/&kp HASH     &kp FSLH     &kp STAR     &kp UNDER    __________    __________   &kp SQT      &kp LT       &kp GT       &kp DQT   /*
+╰────────────┴────────────┴────────────┴────────────┴────────────╯╰────────────┴────────────┴────────────┴────────────┴────────────╯
+╭────────────╮            ╭────────────┬────────────┬────────────╮╭────────────┬────────────┬────────────╮            ╭────────────╮
+*/__________   __________   __________   __________   __________    __________   __________   __________   __________   __________/*
+╰────────────╯            ╰────────────┴────────────┴────────────╯╰────────────┴────────────┴────────────╯            ╰────────────╯
+*/)
 
 /*=====================*/
 /* Combo               */
@@ -72,29 +129,3 @@ ZMK_COMBO(l_esc,  &LH24(ESC)    , L2_2 L2_4)
 ZMK_COMBO(l_bspc, &kp BSPC      , L2_4 L2_5)
 ZMK_COMBO(r_lang, &RH34(LANGCHG), R2_4 R2_3)
 ZMK_COMBO(r_caps, &RH23(CAPS)   , R2_3 R2_2)
-
-/*=====================*/
-/* Layer               */
-/*=====================*/
-#define BASE 0
-#define NAVI 1
-#define SYMB 2
-
-ZMK_LAYER(base_layer,
-  &kp Q   &kp W  &kp E   &kp R         &kp T           /*=*/ &kp Y         &kp U     &kp I        &kp O     &kp P
-  LH1(A)  LH2(S) LH3(D)  LH4(F)        &kp G           /*=*/ &kp H         RH4(J)    RH3(K)       RH2(L)    RH1(SEMI)
-  &kp Z   &kp X  &kp C   &kp V         &kp B           /*=*/ &kp N         &kp M     &COMMA_QMARK &DOT_EXCL &kp APOS
-  SCR_PRV &none  SCR_NXT &tht LCMD RET &tlt NAVI SPACE /*=*/ &lt SYMB BSPC &sk LSHFT &kp C_PP     &none     &FSLH_BSLH
-)
-ZMK_LAYER(navi_layer,
-  &kp N0  &kp N7  &kp N8  &kp N9  ______ /*=*/ ______ &kp LA(LEFT) &kp LA(DOWN) &kp LA(UP) &kp LA(RIGHT)
-  LH1(N0) LH2(N4) LH3(N5) LH4(N6) ______ /*=*/ ______ RH4(LEFT)    RH3(DOWN)    RH2(UP)    RH1(RIGHT)
-  &kp N0  &kp N1  &kp N2  &kp N3  ______ /*=*/ ______ &kp HOME     &kp PG_DN    &kp PG_UP  &kp END
-  ______  ______  ______  ______  ______ /*=*/ ______ ______       ______       ______     ______
-)
-ZMK_LAYER(symb_layer,
-  ______     &kp PIPE   &kp AMPS  ______     ______ /* */ ______    &kp GRAVE &kp CARET &kp DLLR  &kp BSLH
-  LH1(TILDE) LH2(MINUS) LH3(PLUS) LH4(EQUAL) &kp AT /* */ &kp PRCNT RH4(LBRC) RH3(LBKT) RH2(RBKT) RH1(RBRC)
-  &kp HASH   &kp FSLH   &kp STAR  &kp UNDER  ______ /* */ ______    &kp LPAR  &kp LT    &kp GT    &kp RPAR
-  ______     ______     ______    ______     ______ /* */ ______    ______    ______    ______    ______
-)
