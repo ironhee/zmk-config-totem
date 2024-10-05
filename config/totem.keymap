@@ -6,80 +6,95 @@
 #include "./totem_key_position.h"
 #include "./totem_macro.h"
 
-&sk {
-    release-after-ms = <200>;
-    quick-release;
-};
+/*=====================*/
+/* Hold tap            */
+/*=====================*/
+#define HT        flavor = "balanced"; tapping-term-ms = <280>; quick-tap-ms = <180>; require-prior-idle-ms = <120>;
+#define HT_LEFT   hold-trigger-key-positions = <R1_X R2_X R3_X LA_X LT_X>;
+#define HT_RIGHT  hold-trigger-key-positions = <L1_X L2_X L3_X RA_X RT_X>;
+#define HT_MT     bindings = <&kp>, <&kp>; hold-trigger-on-release; 
+#define HT_LT     bindings = <&mo>, <&kp>;
+ZMK_HOLD_TAP(lmt, HT HT_LEFT  HT_MT)  
+ZMK_HOLD_TAP(llt, HT HT_LEFT  HT_LT)
+ZMK_HOLD_TAP(rmt, HT HT_RIGHT HT_MT)
+ZMK_HOLD_TAP(rlt, HT HT_RIGHT HT_LT)
+ZMK_HOLD_TAP(tmt, HT          HT_MT)
+ZMK_HOLD_TAP(tlt, HT          HT_LT)
 
-&lt {
-    flavor = "balanced";
-    tapping-term-ms = <200>;
-    quick-tap-ms = <175>;
-};
+/*=====================*/
+/* Mod morph           */
+/*=====================*/
+#define MORP_SHIFT(NAME, BASE, SHIFTED) \
+  ZMK_MOD_MORPH(NAME, \
+    mods = <(MOD_LSFT|MOD_RSFT)>; \
+    bindings = <BASE>, <SHIFTED>; \
+  )
+MORP_SHIFT(COMMA_QMARK, &kp COMMA, &kp QMARK)
+MORP_SHIFT(DOT_EXCL,    &kp DOT,   &kp EXCL)
+MORP_SHIFT(FSLH_BSLH,   &kp FSLH,  &kp BSLH)
 
-&mt {
-    tapping-term-ms = <280>;
-    quick-tap-ms = <175>;
-};
+/*=====================*/
+/* Alias               */
+/*=====================*/
+#define LH1(keycode) &lmt LGUI keycode
+#define LH2(keycode) &lmt LALT keycode
+#define LH3(keycode) &lmt LCTRL keycode
+#define LH4(keycode) &lmt LSHFT keycode
+#define LH12(keycode) &lmt LG(LALT) keycode
+#define LH23(keycode) &lmt LA(LCTRL) keycode
+#define LH24(keycode) &lmt LA(LSHFT) keycode
+#define LH34(keycode) &lmt LC(LSHFT) keycode
 
-// Layer
+#define RH1(keycode) &rmt LGUI keycode
+#define RH2(keycode) &rmt LALT keycode
+#define RH3(keycode) &rmt LCTRL keycode
+#define RH4(keycode) &rmt LSHFT keycode
+#define RH12(keycode) &rmt LG(LALT) keycode
+#define RH23(keycode) &rmt LA(LCTRL) keycode
+#define RH24(keycode) &rmt LA(LSHFT) keycode
+#define RH34(keycode) &rmt LC(LSHFT) keycode
+
+#define _____ &trans
+#define EMOJI &kp LC(LG(SPACE))
+#define SCR_CAP &kp LS(LC(LG(N4)))
+#define SCR_REC &kp LS(LG(N5))
+#define SCR_PRV &kp LC(LEFT)
+#define SCR_NXT &kp LC(RIGHT)
+#define LANGCHG &kp LC(RIGHT)
+
+/*=====================*/
+/* Combo               */
+/*=====================*/
+ZMK_COMBO(l_del,  &LH12(DEL)    , L2_1 L2_2)
+ZMK_COMBO(l_tab,  &LH23(TAB)    , L2_2 L2_3)
+ZMK_COMBO(l_ret,  &LH24(RET)    , L2_3 L2_4)
+ZMK_COMBO(l_esc,  &LH24(ESC)    , L2_2 L2_4)
+ZMK_COMBO(l_bspc, &kp BSPC      , L2_4 L2_5)
+ZMK_COMBO(r_lang, &RH34(LANGCHG), R2_4 R2_3)
+ZMK_COMBO(r_caps, &RH23(CAPS)   , R2_3 R2_2)
+
+/*=====================*/
+/* Layer               */
+/*=====================*/
 #define BASE 0
 #define NAVI 1
 #define SYMB 2
 
-/ {
-  behaviors {
-    // Hold Tap
-    IRONHEE_THUM_ROW(tht, &kp, &kp) // thumb keys
-    IRONHEE_HOME_ROW(lht, &kp, &kp, R1_X R2_X R3_X LA_X LT_X) // left keys
-    IRONHEE_HOME_ROW(rht, &kp, &kp, L1_X L2_X L3_X RA_X RT_X) // right keys
-    // Morp Shift
-    IRONHEE_MORP_SHIFT(COMMA_QMARK, &kp COMMA, &kp QMARK)
-    IRONHEE_MORP_SHIFT(DOT_EXCL,    &kp DOT,   &kp EXCL)
-    IRONHEE_MORP_SHIFT(FSLH_BSLH,   &kp FSLH,  &kp BSLH)
-  };
-  combos {
-    compatible = "zmk,combos";
-    // Left Hand Combo
-    IRONHEE_COMBO_HORI(l_del,  L2_1 L2_2                , &lht LA(LCMD) DEL)
-    IRONHEE_COMBO_HORI(l_tab,       L2_2 L2_3           , &lht LA(LCTL) TAB)
-    IRONHEE_COMBO_HORI(l_ret,            L2_3 L2_4      , &lht LS(LCTL) RET)
-    IRONHEE_COMBO_HORI(l_esc,       L2_2      L2_4      , &lht LA(LSHFT) ESC)
-    IRONHEE_COMBO_HORI(l_bspc,                L2_4 L2_5 , &kp BSPC)
-    // Right Hand Combos
-    IRONHEE_COMBO_HORI(r_lang,      R2_4 R2_3           , &rht LS(LCTL) LC(SPACE))
-    IRONHEE_COMBO_HORI(r_caps,           R2_3 R2_2      , &rht LA(LCTL) CAPS)
-    // Thumb, Addon Combos
-    IRONHEE_COMBO_HORI(a_lcup, LA_1 LT_1 , &kp LC(UP))
-  };
-  keymap {
-    compatible = "zmk,keymap";
-    base_layer {
-      label = "BASE";
-      bindings = <
-        &kp Q        &kp W       &kp E         &kp R          &kp T         /*=*/ &kp Y         &kp U        &kp I          &kp O       &kp P
-        &lht LCMD A  &lht LALT S &lht LCTL D   &lht LSHFT F   &kp G         /*=*/ &kp H         &rht LSHFT J &rht LCTL K    &rht LALT L &rht LCMD SEMI
-        &kp Z        &kp X       &kp C         &kp V          &kp B         /*=*/ &kp N         &kp M        &COMMA_QMARK   &DOT_EXCL   &kp APOS
-        &kp LC(LEFT) &none       &kp LC(RIGHT) &lt NAVI SPACE &tht LCMD RET /*=*/ &lt SYMB BSPC &sk LSHFT    &kp C_PP       &none       &FSLH_BSLH
-      >;
-    };
-    navi_layer {
-      label = "NAVI";
-      bindings = <
-        &kp N0       &kp N7       &kp N8       &kp N9        &trans /*=*/ &trans &kp LA(LEFT)    &kp LA(DOWN)   &kp LA(UP)   &kp LA(RIGHT)
-        &lht LCMD N0 &lht LALT N4 &lht LCTL N5 &lht LSHFT N6 &trans /*=*/ &trans &rht LSHFT LEFT &rht LCTL DOWN &rht LALT UP &rht LCMD RIGHT
-        &kp N0       &kp N1       &kp N2       &kp N3        &trans /*=*/ &trans &kp HOME        &kp PG_DN      &kp PG_UP    &kp END
-        &trans       &none        &trans       &trans        &trans /*=*/ &trans &trans          &trans         &none        &trans
-      >;
-    };
-    symb_layer {
-      label = "SYMB";
-      bindings = <
-        &trans          &kp PIPE        &kp AMPS       &trans           &trans /* */ &trans    &kp GRAVE       &kp CARET      &kp DLLR       &kp BSLH
-        &lht LCMD TILDE &lht LALT MINUS &lht LCTL PLUS &lht LSHFT EQUAL &kp AT /* */ &kp PRCNT &rht LSHFT LBRC &rht LCTL LBKT &rht LALT RBKT &rht LCMD RBRC
-        &kp HASH        &kp FSLH        &kp STAR       &kp UNDER        &trans /* */ &trans    &kp LPAR        &kp LT         &kp GT         &kp RPAR
-        &trans          &none           &trans         &trans           &trans /* */ &trans    &trans          &trans         &none          &trans
-      >;
-    };
-  };
-};
+ZMK_LAYER(base_layer,
+  &kp Q   &kp W  &kp E   &kp R         &kp T           /*=*/ &kp Y         &kp U     &kp I        &kp O     &kp P
+  LH1(A)  LH2(S) LH3(D)  LH4(F)        &kp G           /*=*/ &kp H         RH4(J)    RH3(K)       RH2(L)    RH1(SEMI)
+  &kp Z   &kp X  &kp C   &kp V         &kp B           /*=*/ &kp N         &kp M     &COMMA_QMARK &DOT_EXCL &kp APOS
+  SCR_PRV &none  SCR_NXT &tht LCMD RET &tlt NAVI SPACE /*=*/ &lt SYMB BSPC &sk LSHFT &kp C_PP     &none     &FSLH_BSLH
+)
+ZMK_LAYER(navi_layer,
+  &kp N0  &kp N7  &kp N8  &kp N9  ______ /*=*/ ______ &kp LA(LEFT) &kp LA(DOWN) &kp LA(UP) &kp LA(RIGHT)
+  LH1(N0) LH2(N4) LH3(N5) LH4(N6) ______ /*=*/ ______ RH4(LEFT)    RH3(DOWN)    RH2(UP)    RH1(RIGHT)
+  &kp N0  &kp N1  &kp N2  &kp N3  ______ /*=*/ ______ &kp HOME     &kp PG_DN    &kp PG_UP  &kp END
+  ______  ______  ______  ______  ______ /*=*/ ______ ______       ______       ______     ______
+)
+ZMK_LAYER(symb_layer,
+  ______     &kp PIPE   &kp AMPS  ______     ______ /* */ ______    &kp GRAVE &kp CARET &kp DLLR  &kp BSLH
+  LH1(TILDE) LH2(MINUS) LH3(PLUS) LH4(EQUAL) &kp AT /* */ &kp PRCNT RH4(LBRC) RH3(LBKT) RH2(RBKT) RH1(RBRC)
+  &kp HASH   &kp FSLH   &kp STAR  &kp UNDER  ______ /* */ ______    &kp LPAR  &kp LT    &kp GT    &kp RPAR
+  ______     ______     ______    ______     ______ /* */ ______    ______    ______    ______    ______
+)
