@@ -40,7 +40,6 @@
     keymap { \
       compatible = "zmk,keymap"; \
       layer_ ## name { \
-        display-name = ZMK_HELPER_STRINGIFY(name); \
         bindings = <layout>; \
       }; \
     }; \
