@@ -9,17 +9,20 @@
 /*=====================*/
 /* Hold tap            */
 /*=====================*/
-#define HT        flavor = "balanced"; tapping-term-ms = <280>; quick-tap-ms = <180>; require-prior-idle-ms = <120>;
+#define HT        tapping-term-ms = <280>; quick-tap-ms = <180>;
+#define HT_BLCD   flavor = "balanced";
+#define HT_HOLD   flavor = "hold-preferred";
+#define HT_IDLE   require-prior-idle-ms = <120>;
 #define HT_LEFT   hold-trigger-key-positions = <KEYS_RIGHT KEYS_ETC>;
 #define HT_RIGHT  hold-trigger-key-positions = <KEYS_LEFT KEYS_ETC>;
-#define HT_MT     bindings = <&kp>, <&kp>; hold-trigger-on-release;
+#define HT_MT     bindings = <&kp>, <&kp>; hold-trigger-on-release; hold-while-undecided;
 #define HT_LT     bindings = <&mo>, <&kp>;
-ZMK_HOLD_TAP(lmt, HT HT_LEFT  HT_MT)
-ZMK_HOLD_TAP(llt, HT HT_LEFT  HT_LT)
-ZMK_HOLD_TAP(rmt, HT HT_RIGHT HT_MT)
-ZMK_HOLD_TAP(rlt, HT HT_RIGHT HT_LT)
-ZMK_HOLD_TAP(tmt, HT          HT_MT)
-ZMK_HOLD_TAP(tlt, HT          HT_LT)
+ZMK_HOLD_TAP(lmt, HT HT_LEFT  HT_MT HT_BLCD HT_IDLE)
+ZMK_HOLD_TAP(llt, HT HT_LEFT  HT_LT HT_BLCD HT_IDLE)
+ZMK_HOLD_TAP(rmt, HT HT_RIGHT HT_MT HT_BLCD HT_IDLE)
+ZMK_HOLD_TAP(rlt, HT HT_RIGHT HT_LT HT_BLCD HT_IDLE)
+ZMK_HOLD_TAP(tmt, HT          HT_MT HT_HOLD        )
+ZMK_HOLD_TAP(tlt, HT          HT_LT HT_BLCD        )
 
 /*=====================*/
 /* Mod morph           */
